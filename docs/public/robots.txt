@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://malikrajat.github.io/tracepulse/sitemap.xml

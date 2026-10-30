@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TracePulse — vanilla TypeScript example</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">TracePulse example</p>
+        <h1>Vanilla TypeScript</h1>
+        <p class="lede">
+          Make a request, watch the console summary, then export the session as a self-contained
+          HTML report.
+        </p>
+      </header>
+
+      <section class="actions" aria-label="Demo actions">
+        <button id="fast" type="button">Fast request</button>
+        <button id="slow" type="button">Slow request</button>
+        <button id="error" type="button">Error request</button>
+        <button id="export-html" type="button" class="primary">Export HTML</button>
+        <button id="copy-json" type="button">Copy JSON</button>
+      </section>
+
+      <output id="status" aria-live="polite"></output>
+      <p id="summary" class="summary"></p>
+      <pre id="output"></pre>
+
+      <footer>
+        Shortcut: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>. The library binds no
+        listener until <code>installReportShortcut()</code> is called.
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
