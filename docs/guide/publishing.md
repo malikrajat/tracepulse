@@ -64,16 +64,10 @@ line, so both npm and GitHub surface the same vocabulary.
 
 ## First release (1.0.0)
 
-TracePulse `1.0.0` has never been published or distributed. The first-release metadata was
-reconciled from an unpublished `0.0.0` baseline, and the reviewed `1.0.0` entry in
+TracePulse `1.0.0` was published to the public npm registry. The reviewed `1.0.0` entry in
 `CHANGELOG.md` records every user-facing change. No release changesets remain.
 
-::: warning Not published yet
-The local `1.0.0` artifacts are prepared for review. Do not publish until the Step 10 and
-release-artifact reviews are approved.
-:::
-
-The publish commands are:
+The publish commands were:
 
 ```bash
 pnpm verify                      # check, coverage, pack and package checks

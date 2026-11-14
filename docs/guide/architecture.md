@@ -31,13 +31,13 @@ featured, fully wired subsystem.
 | Fact                 | Value                                                                               |
 | -------------------- | ----------------------------------------------------------------------------------- |
 | Package              | `@codewithrajat/tracepulse`                                                         |
-| Version              | `1.0.0` (documented as unreleased; not resolvable on the public registry yet)       |
+| Version              | `1.0.0` (published on npm)                                                          |
 | License              | MIT © 2026 Rajat Malik                                                              |
 | Runtime dependencies | **none** — `dependencies` is absent and asserted absent by `scripts/check-dist.mjs` |
 | Source entry         | `src/index.ts` (the only published entry)                                           |
 | Runtime exports      | 20 values + 66 type-only exports                                                    |
 | Formats              | ESM, CJS, IIFE + `.d.ts` / `.d.cts`                                                 |
-| Size budget          | 13 kB brotli (`size-limit` on `dist/index.js`); README quotes ~12.1 kB              |
+| Size budget          | 17 kB brotli (`size-limit` on `dist/index.js`); README quotes <17 kB                |
 | Consumer runtime     | Node 18+, modern browsers, workers, Deno, Bun (target ES2022)                       |
 | Development runtime  | Node 22.18+, 24.11+, or 26+ (`.nvmrc` pins 24), pnpm 11                             |
 | Consumer TypeScript  | 4.7+ (plain `.d.ts` / `.d.cts`)                                                     |
@@ -1398,7 +1398,6 @@ tests where this guide is ambiguous.
 | 1   | `uiUpdateMs` has no live measurement source           | No transport populates `uiTiming`, and V1 exposes no public input.                               | Treat the setting as prepared, not active           |
 | 2   | History is a shallow frozen array                     | The array is frozen; the `PulseEvent` objects inside are not deep-frozen.                        | Don’t mutate retained events                        |
 | 3   | `resolveConfig()` returns a fresh **unfrozen** object | Only `DEFAULT_CONFIG` is frozen; callers can mutate their own copy without corrupting defaults.  | Freeze the result yourself if you share it          |
-| 4   | Package is not published yet                          | `registry.npmjs.org/@codewithrajat/tracepulse` returns 404; the README calls `1.0.0` unreleased. | Install with `file:`/workspace link until published |
 
 ## Appendix A — Complete default reference
 

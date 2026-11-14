@@ -7,17 +7,11 @@ into a project, adjust and ship — the conceptual explanations live in
 The [`vanilla-ts/`](./vanilla-ts/README.md) folder is a complete, compilable Vite package
 you can run from this repository; the other pages are copy-paste recipes.
 
-> **Not on npm yet.** `1.0.0` is unreleased, so install from the repository until the first
-> publish:
->
-> ```bash
-> pnpm add file:../path/to/TracePulse        # local checkout
-> # or, inside a pnpm workspace
-> pnpm add "@codewithrajat/tracepulse@workspace:*"
-> ```
->
-> Every example imports from the package root, so switching to
-> `pnpm add @codewithrajat/tracepulse` later requires no code change.
+Every example installs the published package:
+
+```bash
+pnpm add @codewithrajat/tracepulse
+```
 
 ---
 

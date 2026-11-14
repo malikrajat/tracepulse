@@ -31,6 +31,8 @@ project-local `vp` CLI — no global installation is required.
 | `pnpm check:dist`    | Verify built entry points and declarations                        |
 | `pnpm check:package` | `check:dist` + `publint` + `attw` + `size-limit`                  |
 | `pnpm verify`        | The full gate used by CI                                          |
+| `pnpm build:repo`    | Build + rebuild `build/<repo-name>/`, replacing any previous copy |
+| `pnpm repo`          | Re-assemble without rebuilding; add `--force` to replace          |
 | `pnpm docs:dev`      | VitePress docs site                                               |
 
 ## Project layout
@@ -130,7 +132,7 @@ Everything is enforced by `vp check` (Oxfmt + Oxlint, type-aware). A few princip
 
 ## Questions
 
-- **Email:** [support@theraterajatmalik.dev](mailto:support@theraterajatmalik.dev)
+- **Email:** [support@rajatmalik.dev](mailto:support@rajatmalik.dev)
 - **Bug reports and feature requests:** [GitHub issues](https://github.com/malikrajat/tracepulse/issues)
   using one of the templates
 - **Security reports:** [SECURITY.md](./SECURITY.md) — never a public issue

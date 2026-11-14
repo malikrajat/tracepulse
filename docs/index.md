@@ -38,9 +38,6 @@ features:
 pnpm add @codewithrajat/tracepulse
 ```
 
-> **Not published yet.** `1.0.0` is prepared but unreleased. Until the first publish, install
-> from the repository with `pnpm add file:../path/to/TracePulse`.
-
 ## Use
 
 ```ts
@@ -55,11 +52,11 @@ pulse.dispose()
 ```
 
 Read the [core concepts](/guide/core-concepts) to understand the lifecycle, or jump
-straight into [publishing](/guide/publishing) when you are ready to ship the first release.
+straight into [publishing](/guide/publishing) when you are ready to ship a release.
 
 ## Support
 
 Questions, integration help or private reports:
-**[support@theraterajatmalik.dev](mailto:support@theraterajatmalik.dev)** ·
+**[support@rajatmalik.dev](mailto:support@rajatmalik.dev)** ·
 [GitHub issues](https://github.com/malikrajat/tracepulse/issues) ·
 [npm package](https://www.npmjs.com/package/@codewithrajat/tracepulse).

@@ -1,131 +1,218 @@
 # TracePulse
 
-**Zero-dependency, framework-agnostic request monitoring and performance observability** — fetch/XHR instrumentation, warning/critical thresholds, typed events and console reporting for browsers, Node, Deno, Bun and edge runtimes.
-
-> **Search terms:** request monitoring · performance monitoring · observability · APM · telemetry · tracing · fetch · XHR · instrumentation · thresholds · TypeScript · zero dependencies
-
-<p align="left">
-  <a href="https://www.npmjs.com/package/@codewithrajat/tracepulse"><img src="https://img.shields.io/npm/v/@codewithrajat/tracepulse.svg" alt="npm version"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/status-1.0.0%20unreleased-yellow" alt="Release status"></a>
-  <a href="https://www.npmjs.com/package/@codewithrajat/tracepulse"><img src="https://img.shields.io/npm/dm/@codewithrajat/tracepulse.svg" alt="npm downloads"></a>
-  <a href="https://www.npmjs.com/package/@codewithrajat/tracepulse"><img src="https://img.shields.io/npm/types/@codewithrajat/tracepulse.svg" alt="TypeScript types"></a>
-  <a href="package.json"><img src="https://img.shields.io/node/v/@codewithrajat/tracepulse.svg" alt="Node version"></a>
-  <a href="package.json"><img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" alt="Zero dependencies"></a>
-  <a href="vite.config.ts"><img src="https://img.shields.io/badge/bundle-~8.8%20kB%20brotli-success" alt="Bundle size"></a>
-  <a href="package.json"><img src="https://img.shields.io/badge/formats-ESM%20%7C%20CJS%20%7C%20IIFE-blue" alt="ESM, CJS and IIFE bundles"></a>
-  <a href="package.json"><img src="https://img.shields.io/badge/side%20effects-none-blue" alt="No side effects"></a>
-  <a href="vite.config.ts"><img src="https://img.shields.io/badge/tree--shaking-supported-success" alt="Tree-shakable"></a>
-  <a href="docs/guide/architecture.md"><img src="https://img.shields.io/badge/TypeScript-strict-blue" alt="Strict TypeScript"></a>
-  <a href="examples/ssr.md"><img src="https://img.shields.io/badge/SSR-safe-success" alt="SSR safe"></a>
-  <a href="examples/README.md"><img src="https://img.shields.io/badge/frameworks-React%20%7C%20Angular%20%7C%20Vue%20%7C%20Svelte-blue" alt="Framework agnostic"></a>
-  <a href="docs/guide/architecture.md"><img src="https://img.shields.io/badge/coverage-96%25-success" alt="Test coverage"></a>
-  <a href="docs/guide/api.md"><img src="https://img.shields.io/badge/API-documented-blue" alt="API documentation"></a>
-  <a href="examples/README.md"><img src="https://img.shields.io/badge/examples-available-success" alt="Examples"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/SemVer-compliant-blue" alt="Semantic versioning"></a>
-  <a href="https://github.com/malikrajat/tracepulse/actions/workflows/ci.yml"><img src="https://github.com/malikrajat/tracepulse/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://bundlephobia.com/package/@codewithrajat/tracepulse"><img src="https://img.shields.io/bundlephobia/minzip/@codewithrajat/tracepulse" alt="Minified bundle size"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/npm/l/@codewithrajat/tracepulse.svg" alt="MIT license"></a>
-  <a href="https://github.com/malikrajat/tracepulse/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome"></a>
+<p align="center">
+  <img src="https://img.shields.io/badge/npm-1.0.0-blue?logo=npm&logoColor=white" alt="npm package 1.0.0">
+  <img src="https://img.shields.io/badge/bundle-%3C17%20kB%20brotli-success" alt="Bundle size under 17 kB brotli">
+  <img src="https://img.shields.io/badge/TypeScript-declarations-blue?logo=typescript&logoColor=white" alt="TypeScript declarations included">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license">
+  <img src="https://img.shields.io/github/issues/malikrajat/tracepulse" alt="Open issues">
+  <img src="https://img.shields.io/github/stars/malikrajat/tracepulse" alt="GitHub stars">
+  <img src="https://img.shields.io/github/issues-pr/malikrajat/tracepulse" alt="Open pull requests">
+  <img src="https://img.shields.io/github/contributors/malikrajat/tracepulse?color=blue" alt="Contributors">
+  <img src="https://img.shields.io/github/commit-activity/m/malikrajat/tracepulse" alt="Commit activity">
+  <img src="https://img.shields.io/github/last-commit/malikrajat/tracepulse" alt="Last commit">
+  <img src="https://img.shields.io/badge/Stability-production--ready-success" alt="Production ready">
+  <img src="https://img.shields.io/badge/Dependencies-none-success" alt="Zero dependencies">
+  <img src="https://img.shields.io/badge/Side%20Effects-none-success" alt="No side effects">
+  <img src="https://img.shields.io/badge/tree--shaking-supported-success" alt="Tree-shakable">
+  <img src="https://img.shields.io/badge/formats-ESM%20%7C%20CJS%20%7C%20IIFE-blue" alt="ESM, CJS and IIFE bundles">
+  <img src="https://img.shields.io/badge/Web%20Worker-supported-success" alt="Web Worker supported">
+  <img src="https://img.shields.io/badge/TypeScript-strict%20%2B%20noUncheckedIndexedAccess-success" alt="Strict TypeScript">
+  <img src="https://img.shields.io/badge/Frameworks-React%20%7C%20Angular%20%7C%20Vue%20%7C%20Svelte-blue" alt="Framework agnostic">
+  <img src="https://img.shields.io/badge/Runtimes-Browser%20%7C%20Node%20%7C%20Deno%20%7C%20Bun-blue" alt="Cross-runtime">
+  <img src="https://img.shields.io/badge/SSR-safe-success" alt="SSR safe">
+  <img src="https://img.shields.io/badge/SemVer-compliant-blue" alt="Semantic versioning">
+  <img src="https://img.shields.io/badge/egress-none%20by%20default-success" alt="No egress by default">
+  <img src="https://img.shields.io/badge/browsers-Chrome%20%7C%20Firefox%20%7C%20Safari%20%7C%20Edge-blue" alt="Supported browsers">
+  <img src="https://img.shields.io/badge/commits-conventional-success" alt="Conventional commits">
+  <img src="https://img.shields.io/badge/Tests-covered-success" alt="Tests">
+  <img src="https://img.shields.io/badge/Coverage-reported-blue" alt="Coverage reported">
+  <img src="https://img.shields.io/badge/API-documented-blue" alt="API documented">
+  <img src="https://img.shields.io/badge/Examples-available-success" alt="Examples available">
+  <img src="https://img.shields.io/badge/Maintained-yes-success" alt="Maintained">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome">
+  <img src="https://img.shields.io/badge/CI-GitHub%20Actions-blue?logo=githubactions&logoColor=white" alt="CI on GitHub Actions">
 </p>
-
----
-
-## See it in action
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/malikrajat/tracepulse/main/assets/tracepulse-hero.gif" alt="A desktop browser runs a checkout page and its DevTools console: three requests appear as collapsed groups, the slow report request is expanded to show its four-phase timing row and a session summary that says what needs attention" width="1000" />
-  <p><em>Same page, same code: three requests, with one line telling you what needs attention.</em></p>
+  <h3>
+    <a href="https://www.npmjs.com/package/@codewithrajat/tracepulse">View on npm</a>
+    •
+    <a href="https://github.com/malikrajat/tracepulse">Source Code</a>
+    •
+    <a href="https://stackblitz.com/edit/vitejs-vite-jt62srqb">Try Demo</a>
+    •
+    <a href="./docs/guide/getting-started.md">Documentation</a>
+  </h3>
 </div>
 
-<p align="center">
-  <b>Zero-dependency request diagnostics for <code>fetch()</code> and <code>XMLHttpRequest</code>.</b><br />
-  Measure the request lifecycle, classify it against warning/critical thresholds, and read the
-  result in your console. No backend, no account, nothing leaves the page.
-</p>
+<div align="center">
+  <p>
+    <strong>Zero Dependencies</strong> ·
+    <strong>Framework Agnostic</strong> ·
+    <strong>High-Resolution Timing</strong> ·
+    <strong>Type-Safe</strong> ·
+    <strong>Production Ready</strong>
+  </p>
+</div>
 
-<p align="center">
-  <a href="./docs/guide/getting-started.md"><b>📘 Documentation</b></a> ·
-  <a href="./examples/README.md"><b>🧪 Examples</b></a> ·
-  <a href="./docs/guide/architecture.md"><b>🏗 Architecture</b></a> ·
-  <a href="./docs/guide/api.md"><b>🔌 API reference</b></a> ·
-  <a href="#faq"><b>❓ FAQ</b></a> ·
-  <a href="./CHANGELOG.md"><b>📝 Changelog</b></a>
-</p>
+## See It In Action
 
-> **Status:** `1.0.0` (unreleased). Request monitoring (fetch/XHR), threshold evaluation
-> and console reporting are implemented. The generic instance logic in
-> `src/core/trace-pulse.ts` remains a small reference implementation meant to be replaced.
+<div align="center">
+
+  <img src="./assets/tracepulse-hero.gif" alt="A browser running a checkout page: TracePulse prints one collapsed console group per request, with a slow report request expanded to show its timing row and the session summary" width="1000" />
+
+</div>
+
+
+
+
+
+## Table of Contents
+
+- [Installation](./docs/guide/getting-started.md)
+- [Quick Start / Usage](./docs/guide/getting-started.md)
+- [API Reference](./docs/guide/api.md)
+- [Configuration](./docs/guide/configuration.md)
+- [Core Concepts](./docs/guide/core-concepts.md)
+- [Architecture](./docs/guide/architecture.md)
+- [Scope & Protocols](./docs/guide/scope.md)
+- [Measurement Model](./docs/guide/measurement-model.md)
+- [Plugins](./docs/guide/plugins.md)
+- [Reporting](./docs/guide/reporting.md)
+- [Performance Optimization](#performance-optimization)
+- [Runtime Support](./docs/guide/architecture.md)
+- [Migration & Versioning](./docs/guide/migration.md)
+- [FAQ](#faq)
+- [Troubleshooting](./docs/guide/troubleshooting.md)
+- [Publishing](./docs/guide/publishing.md)
+- [Project Structure](./docs/guide/architecture.md)
+- [Changelog](./CHANGELOG.md)
+- [License](./LICENSE)
+- [Examples](./examples/README.md)
+
+
+
+## Live Demo & Playground
+
+| | |
+| --- | --- |
+| <a href="https://stackblitz.com/edit/vitejs-vite-jt62srqb" target="_blank"><img src="https://img.shields.io/badge/StackBlitz_Demo-1976D2?style=for-the-badge&logo=stackblitz&logoColor=white" alt="StackBlitz Demo"/></a><br/><br/><sub><b>Interactive Playground</b></sub><br/><sub>Run it live in your browser — no install</sub> | <a href="./docs/index.md" target="_blank"><img src="https://img.shields.io/badge/Documentation_Index-1976D2?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Documentation Index"/></a><br/><br/><sub><b>Documentation Index</b></sub><br/><sub>Guides, API reference and internals</sub> |
+| <a href="https://github.com/malikrajat/tracepulse/tree/main/examples" target="_blank"><img src="https://img.shields.io/badge/Code_Examples-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Examples"/></a><br/><br/><sub><b>Complete Examples</b></sub><br/><sub>Copy-paste ready code samples</sub> | <a href="https://www.npmjs.com/package/@codewithrajat/tracepulse" target="_blank"><img src="https://img.shields.io/badge/npm_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm Package"/></a><br/><br/><sub><b>npm Registry</b></sub><br/><sub>Install and view package details</sub> |
+| <a href="https://github.com/malikrajat/tracepulse" target="_blank"><img src="https://img.shields.io/badge/GitHub_Repo-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository"/></a><br/><br/><sub><b>Source Code</b></sub><br/><sub>Star, fork, and contribute</sub> | <a href="./docs/guide/architecture.md" target="_blank"><img src="https://img.shields.io/badge/Architecture_%26_Decisions-375A7F?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Architecture and Decisions"/></a><br/><br/><sub><b>Architecture &amp; Decisions</b></sub><br/><sub>How it works, and why it is shaped that way</sub> |
+
+
+
+## Quick Start
+
+
+`@codewithrajat/tracepulse` is a small, dependency-free request diagnostics toolkit for JavaScript and TypeScript. It wraps `fetch()` and `XMLHttpRequest`, measures every phase of the request lifecycle, classifies the result against warning and critical thresholds, and prints a readable report in the developer console — without an agent, a dashboard, a backend or an account. The same package also exposes a typed pulse/event primitive for timing your own application work, plus opt-in HTML and JSON report export.
+
+It ships as ESM, CJS and IIFE, is safe to import on the server, and works in browsers, web workers, Node, Deno, Bun and edge runtimes.
+
+### Installation
+
+```bash
+npm install @codewithrajat/tracepulse
+```
+
+### Basic Usage
+
+```ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+const monitor = createMonitor({
+  exclude: ['/telemetry'],
+  thresholds: {
+    timeToResponseMs: { warningMs: 1000, criticalMs: 2000 }
+  }
+})
+
+// Nothing else to wire: fetch() and XMLHttpRequest calls are observed from here on.
+const response = await fetch('/api/orders')
+
+monitor.stop() // uninstall this monitor's instrumentation
+```
+
+Open the console and you get one collapsed group per completed request, colour-coded by
+severity, with a session summary that says which endpoint needs attention. No backend, no
+upload, no account — the measurements never leave the page.
 
 ---
 
-## Table of contents
+## Features
 
-- [See it in action](#see-it-in-action)
-- [Why TracePulse](#why-tracepulse)
-- [Install](#install)
-- [Quick start](#quick-start)
-- [Documentation and examples](#documentation-and-examples)
-- [Monitor requests](#monitor-requests)
-- [Configuration](#configuration)
-- [Measurement model](#measurement-model)
-- [The toolchain (Vite+)](#the-toolchain-vite)
-- [Core concepts](#core-concepts)
-- [Recipes](#recipes)
-- [API](#api)
-- [Package formats](#package-formats)
-- [Requirements](#requirements)
-- [Project structure](#project-structure)
-- [Development](#development)
-- [Publishing](#publishing)
-- [FAQ](#faq)
-- [Support](#support)
-- [License](#license)
+- **Automatic fetch instrumentation**: Wraps the global `fetch()` without changing its return value or rejection behaviour, and measures call, dispatch, resolution and failure boundaries
+- **Automatic XHR instrumentation**: Patches `open`, `send` and `abort` with pass-through wrappers, preserves the native event model and removes listeners after every request settles
+- **Four-phase timing**: Queue, time to response, response body and UI render, each reported separately so a slow request is never a single opaque number
+- **Warning and critical thresholds**: Per-phase `{ warningMs, criticalMs }` pairs, validated at startup and tunable at runtime with `setThresholds()`
+- **Colour-coded console reporting**: Collapsible groups, a one-line summary, healthy/warning/critical colours and an optional accumulated table or in-page panel
+- **Session summary**: Groups by endpoint and answers "what needs attention" with `care now`, `concern`, `watch`, `not improving` and `healthy` sections
+- **Slow-request detection**: Highlights timing growth over the previous sample of the same endpoint, with an arrow delta in the group header
+- **Request exclusions**: Case-sensitive substring rules keep analytics, health checks and noisy third-party hosts out of the output
+- **Typed event primitive**: `createTracePulse()` gives you pulses, bounded history, sampling, plugins and a typed emitter for your own measurements
+- **HTML and JSON reports**: One call turns a session into a self-contained, searchable and sortable file; rendering is an opt-in subpath
+- **Page timing**: Navigation, paint milestones, LCP and resource totals for one-off or continuous page measurement
+- **Deterministic tests**: Inject `clock` and `idFactory`; no hidden globals, no flaky timestamps
+- **Framework agnostic**: No React, Angular, Vue, Svelte, DOM or Node.js imports in the core
+- **Runtime agnostic**: Browsers, workers, Node 18+, Deno, Bun and edge runtimes
+- **Strict TypeScript**: `strict`, `noUncheckedIndexedAccess` and `exactOptionalPropertyTypes`, with stable error codes and validated runtime options
+- **Zero dependencies**: `dependencies` is empty; the tarball contains only this library
+- **Tiny and tree-shakable**: `sideEffects: false`, static ESM exports and a subpath split that keeps the report renderer out of the root bundle
+- **Published package**: Dual ESM/CJS with `.d.ts` and `.d.cts`, an IIFE build for CDNs, publint/attw/size-limit gates and Changesets-based releases
 
-## Why TracePulse
+---
 
-- **Framework-agnostic.** No Vue, React, DOM or Node.js APIs in the core. Works in
-  browsers, web workers, Node, Deno, Bun and edge runtimes.
-- **Zero dependencies.** `dependencies` is empty; the published tarball contains only
-  your code.
-- **Tiny and optimized.** Minified ESM/CJS/IIFE bundles, `sideEffects: false`, static
-  ESM exports — bundlers tree-shake it down to what you import. **~13.8 kB brotli** for
-  the full request-monitoring API (configuration, console reporting and the bounded report
-  store included). The HTML/JSON renderer is an opt-in subpath that adds nothing to the root.
-- **Exportable reports.** One call turns a session into a self-contained HTML or JSON file
-  with search, sorting, stage/owner attribution and page timing. No backend, no upload.
-- **No source maps shipped.** Smaller tarball, cleaner `dist/`.
-- **Strict by default.** TypeScript `strict` + `noUncheckedIndexedAccess` +
-  `exactOptionalPropertyTypes`, validated runtime options and stable error codes.
-- **Deterministic in tests.** Inject `clock` and `idFactory`; no hidden globals.
-- **One toolchain.** [Vite+](https://viteplus.dev) (`vp`) handles dev server, lint,
-  format, type-check, tests and library packing from a single `vite.config.ts` — no
-  ESLint or Prettier config files.
-- **Publish-ready.** Dual ESM/CJS with `.d.ts` + `.d.cts`, IIFE bundle for CDNs,
-  publint/attw/size-limit checks and provenance-ready releases via Changesets.
+## Quick Start Guide
 
-## Install
+### 1. Installation
+
+Choose your preferred package manager:
 
 ```bash
-pnpm add @codewithrajat/tracepulse
-# or
+# npm
 npm install @codewithrajat/tracepulse
-# or
+
+# pnpm
+pnpm add @codewithrajat/tracepulse
+
+# yarn
 yarn add @codewithrajat/tracepulse
+
+# bun
+bun add @codewithrajat/tracepulse
 ```
 
-> **Not published yet.** `1.0.0` is prepared but unreleased, so the commands above fail until
-> the first publish. In the meantime, install straight from the repository:
->
-> ```bash
-> pnpm add file:../path/to/TracePulse
-> # or, inside a pnpm workspace
-> pnpm add "@codewithrajat/tracepulse@workspace:*"
-> ```
->
-> Every example imports from the package root, so switching to the published package later
-> needs no code change.
+### 2. Basic Integration
 
-## Quick start
+#### Option A: Automatic request monitoring (Recommended)
+
+```ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+const monitor = createMonitor({
+  exclude: ['https://analytics.example.com', '/health'],
+  thresholds: {
+    queueMs: { warningMs: 100, criticalMs: 300 },
+    timeToResponseMs: { warningMs: 2000, criticalMs: 3000 },
+    responseProcessingMs: { warningMs: 300, criticalMs: 500 }
+  },
+  console: {
+    level: 'all',
+    panel: false
+  }
+})
+
+// Every fetch() and XMLHttpRequest call is measured automatically.
+```
+
+`createMonitor()` starts immediately by default. Pass `autoStart: false` when you want to
+install instrumentation only after your app has bootstrapped.
+
+#### Option B: Core pulse instance (your own events)
+
+`createTracePulse()` is the generic primitive: it records named pulses, keeps a bounded
+history and dispatches typed events. It never patches a global.
 
 ```ts
 import { createTracePulse } from '@codewithrajat/tracepulse'
@@ -143,232 +230,185 @@ unsubscribe()
 pulse.dispose()
 ```
 
-## Documentation and examples
+| Entry point          | Use it for                                             | Installs globals? |
+| -------------------- | ------------------------------------------------------ | ----------------- |
+| `createMonitor()`    | Automatic fetch/XHR timing and console diagnostics     | Yes               |
+| `createTracePulse()` | Your own application events, plugins and history       | No                |
 
-Both live in this repository — no external site, no login, nothing to install to read them.
+### 3. Common Use Cases
 
-### Documentation
-
-| Guide                                                  | What it covers                                         |
-| ------------------------------------------------------ | ------------------------------------------------------ |
-| [Getting started](./docs/guide/getting-started.md)     | Install, first instance, everyday commands             |
-| [Configuration](./docs/guide/configuration.md)         | Every setting, its default, merge rules and validation |
-| [Architecture](./docs/guide/architecture.md)           | Parameters, defaults, pipeline, build and licensing    |
-| [Scope and protocols](./docs/guide/scope.md)           | In-scope transports, exclusions and open decisions     |
-| [API reference](./docs/guide/api.md)                   | Every export and signature                             |
-| [Measurement model](./docs/guide/measurement-model.md) | Timestamps, durations, lifecycle and outcomes          |
-| [Core concepts](./docs/guide/core-concepts.md)         | Lifecycle, events, history, sampling and plugins       |
-| [Plugins](./docs/guide/plugins.md)                     | Extend an instance without touching internals          |
-| [Migrating thresholds](./docs/guide/migration.md)      | Upgrade from single-number thresholds                  |
-| [Troubleshooting](./docs/guide/troubleshooting.md)     | Common failures and their causes                       |
-| [Publishing](./docs/guide/publishing.md)               | Release process and provenance                         |
-
-### Examples
-
-Each framework has its own folder; every page is copy-paste runnable code.
-
-| Framework                               | Folder              | Covers                                                         |
-| --------------------------------------- | ------------------- | -------------------------------------------------------------- |
-| [React](./examples/react/README.md)     | `examples/react/`   | Context provider, StrictMode-safe instance, Next.js App Router |
-| [Angular](./examples/angular/README.md) | `examples/angular/` | Root service, app initializer, HttpClient, zoneless and SSR    |
-| [Vue](./examples/vue/README.md)         | `examples/vue/`     | Plugin, typed composable, Nuxt client plugin                   |
-| [Svelte](./examples/svelte/README.md)   | `examples/svelte/`  | Context provider, `onMount`, SvelteKit guard                   |
-| [Vanilla](./examples/vanilla/README.md) | `examples/vanilla/` | Module, IIFE `<script>`, demo page, Vite HMR                   |
-| [Node](./examples/node/README.md)       | `examples/node/`    | Per-request instances; why not to monitor globally             |
-
-Framework-agnostic recipes in [`examples/`](./examples/README.md):
-[basic monitoring](./examples/basic-monitoring.md) ·
-[exclusions](./examples/exclusions.md) ·
-[thresholds](./examples/thresholds.md) ·
-[console output](./examples/console-output.md) ·
-[lifecycle](./examples/lifecycle.md) ·
-[core events and plugins](./examples/core-events.md) ·
-[testing](./examples/testing.md) ·
-[SSR and workers](./examples/ssr.md).
-
-## Monitor requests
-
-`createMonitor()` installs `fetch()` / `XMLHttpRequest` instrumentation and reports completed
-request measurements to the developer console. It starts automatically by default.
+#### Debugging a Slow API in a Single Page App
 
 ```ts
 import { createMonitor } from '@codewithrajat/tracepulse'
 
 const monitor = createMonitor({
-  exclude: ['/telemetry'],
-  thresholds: { timeToResponseMs: { warningMs: 1000, criticalMs: 2000 } },
-})
-
-// fetch() and XMLHttpRequest calls are reported automatically.
-
-monitor.stop() // uninstall this monitor's instrumentation
-monitor.start() // reinstall; repeated calls are safe
-```
-
-- `enabled: false` never starts; `autoStart: false` waits for an explicit `start()`.
-  `enabled` is fixed at creation — V1 has no runtime toggle.
-- `start()` / `stop()` are idempotent. Only one monitor may run per loaded module
-  instance; a competing `start()` throws `TracePulseError` with code `INVALID_STATE`.
-  The guard belongs to the loaded module instance, so duplicate copies of the package or
-  separate realms are not globally coordinated.
-- `stop()` never cancels in-flight requests: they settle normally but are no longer
-  observed, so no terminal report is produced after stopping.
-- `stop()` leaves a third-party `fetch` / XHR wrapper installed after TracePulse untouched.
-  Restarting wraps the current patch and does not duplicate reports.
-- `console.enabled`, `console.level`, `console.useColors`, `console.showTable` and
-  `console.collapsible` control reporter output. `console.level` is a minimum severity:
-  `all` (default), `warning`, `critical` or `off`, so production can hide healthy requests
-  without disabling monitoring. By default each terminal request becomes one **collapsed
-  console group**: expanding it shows that request's row (`Queue`, `Time to response`,
-  `Response body`, `UI render`) and the colour-coded session summary. The console stays one
-  line per request instead of reprinting a growing table, and any timing increase over the
-  previous sample of the same endpoint is highlighted in the group header.
-- `console.replace: true` switches to the single-table mode: the console is cleared before
-  printing the complete accumulated table (it also clears your application's own output).
-- `console.panel: true` renders the same session in a collapsed **in-page panel** that is
-  updated in place: one row per request occurrence, the session summary and the page report,
-  with the console left completely untouched.
-- See the [API reference](docs/guide/api.md#request-monitoring) for the lifecycle contract.
-
-## Configuration
-
-Monitoring is configured with a single typed object. `resolveConfig()` merges partial
-overrides with `DEFAULT_CONFIG` (deeply frozen), validating everything on the way.
-
-```ts
-import { resolveConfig } from '@codewithrajat/tracepulse'
-
-const config = resolveConfig({
-  exclude: ['https://analytics.example.com', '/telemetry'],
-  thresholds: { timeToResponseMs: { warningMs: 1500 } },
-  console: { showTable: false },
-})
-
-config.thresholds.timeToResponseMs.warningMs // 1500
-config.thresholds.timeToResponseMs.criticalMs // 3000 — default preserved
-config.thresholds.responseProcessingMs.criticalMs // 500 — default preserved
-config.colors.warning // "#eab308" — default preserved
-```
-
-| Group        | Settings                                                                                                     | Defaults                                                           |
-| ------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| General      | `enabled`, `autoStart`                                                                                       | `true`, `true`                                                     |
-| `exclude`    | URLs your app calls that should not be measured                                                              | `[]`                                                               |
-| `thresholds` | `queueMs`, `timeToResponseMs`, `responseProcessingMs`, `uiUpdateMs`, each a `{ warningMs, criticalMs }` pair | `100/300`, `2000/3000`, `300/500`, `500/1000` ms                   |
-| `ownership`  | Declared owner labels per phase and per failure class (`serverError`, `clientError`, `failure`)              | `{}` — nothing is inferred                                         |
-| `colors`     | `normal`, `warning`, `critical`                                                                              | `#22c55e`, `#eab308`, `#ef4444`                                    |
-| `console`    | `enabled`, `level`, `onlyIssues`, `useColors`, `showTable`, `collapsible`, `replace`, `panel`                | `true`, `"all"`, `false`, `true`, `true`, `true`, `false`, `false` |
-
-- **Exclusions** match as case-sensitive substrings of the full request URL. TracePulse
-  itself calls no endpoint — the rules only filter requests your application makes.
-- **Nested groups merge per property**: override one threshold boundary and the rest stay
-  default.
-- **Validation** throws `TypeError` for wrong types/shapes/formats and `RangeError` for
-  negative/non-finite thresholds or a pair where `warningMs` is not strictly less than
-  `criticalMs`; messages name the offending path.
-- `DEFAULT_CONFIG`, your object and the resolved object never share mutable state.
-
-> **Used an unreleased development build?** `1.0.0` is the first public release;
-> there is no published TracePulse 1.x API to migrate from. Pre-release builds used one
-> number per category under `requestDurationMs`, `responseProcessingMs` and `uiUpdateMs`.
-> `requestDurationMs` is renamed to `timeToResponseMs`, and every category now requires an
-> explicit pair. The old key and the numeric form are rejected, not reinterpreted. Replace
-> `thresholds: { requestDurationMs: 3000 }` with an explicit pair such as
-> `thresholds: { timeToResponseMs: { warningMs: 2000, criticalMs: 3000 } }`. See
-> [the threshold pairs guide](docs/guide/migration.md).
-
-See [docs/guide/configuration.md](docs/guide/configuration.md) for the full reference.
-
-> Configuration defines behaviour. `createMonitor()` applies it to fetch/XHR
-> instrumentation and the console reporter.
-
-## Measurement model
-
-The shared model that both transports produce, plus two pure helpers for deriving
-durations:
-
-```ts
-type RequestMeasurement =
-  | PendingRequestMeasurement // started, no response yet
-  | HeadersReceivedRequestMeasurement // headers available, body may be streaming
-  | CompletedRequestMeasurement // HTTP response received (2xx or error status)
-  | FailedRequestMeasurement // network failure or client-side timeout
-  | AbortedRequestMeasurement // cancelled
-```
-
-```ts
-const measurement: RequestMeasurement = {
-  id: 'req-1',
-  url: 'https://api.example.com/items',
-  method: 'GET',
-  transport: 'fetch',
-  lifecycle: 'completed',
-  // fetch resolves when headers are available: no response-body timestamp.
-  timing: {
-    queuedAt: 0,
-    startedAt: 0,
-    sentAt: 1,
-    responseStartedAt: 120,
-    completedAt: 120,
+  thresholds: {
+    timeToResponseMs: { warningMs: 500, criticalMs: 1500 }
   },
-  response: { status: 200, ok: true, contentType: 'application/json' },
-  outcome: { kind: 'success' },
+  console: { onlyIssues: true }
+})
+
+// Later: a user reports a slow checkout, so drop the bar without a reload.
+monitor.setThresholds({
+  timeToResponseMs: { warningMs: 250, criticalMs: 800 }
+})
+```
+
+`console.onlyIssues: true` hides healthy requests while keeping warnings, criticals, HTTP
+errors, failures and near-limit entries — ideal when the console is otherwise busy.
+
+#### Bootstrapping the Monitor in React
+
+```tsx
+import { useEffect } from 'react'
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+export function useRequestMonitor(enabled: boolean): void {
+  useEffect(() => {
+    if (!enabled) {
+      return
+    }
+
+    const monitor = createMonitor()
+
+    return () => monitor.stop()
+  }, [enabled])
 }
 ```
 
-- Timestamps come from **one instrumentation clock**: monotonic `performance.now()` where
-  available, with a `Date.now()` fallback. Missing measurements are `undefined`, never `0`.
-- `queuedAt` → `sentAt` is the **queue** phase. `XMLHttpRequest` measures `open()` → `send()`;
-  `fetch()` measures the short hand-off between the call and the native transport accepting it.
-- The four phases are non-overlapping:
-  - **Queue** — `sentAt - queuedAt`.
-  - **Time to response** — `responseStartedAt - sentAt`.
-  - **Response body** — `responseCompletedAt - responseStartedAt` (XHR only; fetch never
-    consumes the body).
-  - **UI render** — `uiTiming.updatedAt - completedAt`, only when an explicit mark exists.
-- Durations are derived, not stored: `getRequestDurations(timing)` returns
-  `{ queueMs, durationMs, timeToResponseMs, responseBodyMs }`, with `undefined` for anything
-  that cannot be computed. `elapsedMs(from, to)` works for custom measurements.
-- Lifecycle and outcome are separate: a **404 is `completed` + `http-error`**, not a network
-  failure. `failed` is reserved for network errors and client-side timeouts.
-- Response bodies, request bodies and sensitive headers are never stored.
-- `uiTiming` is optional and never implied by response completion.
+The monitor owns no framework state. Create it where your application's lifecycle lives and
+stop it on teardown; the [React](./examples/react/README.md),
+[Angular](./examples/angular/README.md), [Vue](./examples/vue/README.md),
+[Svelte](./examples/svelte/README.md) and [Node](./examples/node/README.md) folders contain
+framework-specific recipes.
 
-See [docs/guide/measurement-model.md](docs/guide/measurement-model.md) for the full contract.
+#### Timing Your Own Application Work
 
-## Console output
+```ts
+import { createTracePulse } from '@codewithrajat/tracepulse'
 
-By default each terminal request is written as one **collapsed group**. The header is always
-visible and the row plus summary expand on demand, so a busy console stays readable instead
-of reprinting a growing session table after every request. With
-`timeToResponseMs: { warningMs: 1000, criticalMs: 2000 }`, a session looks like this:
+const pulse = createTracePulse({ name: 'dashboard' })
+
+pulse.on('pulse', (event) => {
+  if (event.name === 'hydrate' && Number(event.data?.ms) > 100) {
+    console.warn('Hydration exceeded the budget', event.data)
+  }
+})
+
+pulse.start()
+
+const startedAt = performance.now()
+// ... render the dashboard ...
+pulse.pulse('hydrate', { ms: performance.now() - startedAt })
+```
+
+### 4. Advanced Configuration
+
+```ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+const monitor = createMonitor({
+  enabled: true,
+  autoStart: true,
+
+  // Do not measure these URLs (case-sensitive substrings of the full URL).
+  exclude: ['/telemetry', 'https://cdn.example.com'],
+
+  // Every phase needs an explicit warning < critical pair.
+  thresholds: {
+    queueMs: { warningMs: 100, criticalMs: 300 },
+    timeToResponseMs: { warningMs: 2000, criticalMs: 3000 },
+    responseProcessingMs: { warningMs: 300, criticalMs: 500 },
+    uiUpdateMs: { warningMs: 500, criticalMs: 1000 }
+  },
+
+  // Declare who owns a phase or a failure class. Nothing is guessed.
+  ownership: {
+    timeToResponseMs: 'platform-api',
+    responseProcessingMs: 'content-service',
+    serverError: 'platform-api',
+    networkError: 'infrastructure'
+  },
+
+  colors: {
+    normal: '#22c55e',
+    warning: '#eab308',
+    critical: '#ef4444'
+  },
+
+  console: {
+    enabled: true,
+    level: 'all',
+    onlyIssues: false,
+    useColors: true,
+    showTable: true,
+    collapsible: true,
+    replace: false,
+    panel: false
+  },
+
+  page: {
+    enabled: true,
+    mode: 'once',
+    spa: false,
+    settleMs: 300,
+    resources: true,
+    thresholds: {
+      pageLoadMs: { warningMs: 3000, criticalMs: 5000 },
+      firstContentfulPaintMs: { warningMs: 1800, criticalMs: 3000 },
+      largestContentfulPaintMs: { warningMs: 2500, criticalMs: 4000 }
+    }
+  },
+
+  report: { enabled: true, maxEntries: 500 }
+})
+```
+
+Nested groups merge per property: override one threshold boundary and every other default is
+preserved. Invalid types throw `TypeError`; negative or non-finite values, or a pair where
+`warningMs` is not strictly less than `criticalMs`, throw `RangeError`.
+
+### 5. Programmatic Control
+
+```ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+const monitor = createMonitor({ autoStart: false })
+
+monitor.start() // install instrumentation (idempotent)
+monitor.stop() // uninstall this monitor's wrappers (idempotent)
+
+monitor.setThresholds({
+  timeToResponseMs: { warningMs: 3000, criticalMs: 5000 }
+})
+
+const page = monitor.page() // PageLoadMeasurement | undefined
+monitor.reportPage() // print the page timing report now
+
+const snapshot = monitor.getReport({ generatedAt: Date.now() })
+console.log(snapshot.measurements.length)
+
+monitor.clearMeasurements() // empty the report store
+```
+
+A monitor may only run one instance per loaded module. A competing `start()` throws
+`TracePulseError` with code `INVALID_STATE`; call `stop()` on the first monitor first.
+
+### 6. Console Output & Reports
+
+By default each terminal request is appended as one collapsed group. The header stays visible
+and the timing row plus session summary expand on demand, so a busy console stays readable.
 
 ```text
 ▶ TracePulse [NORMAL] · GET pulse.app/api/items · 200 · Time to response 120 ms (normal)
 ▶ TracePulse [WARNING] · POST pulse.app/api/checkout · 200 · Time to response 1240 ms (warning)
 ▶ TracePulse [CRITICAL] · GET pulse.app/api/report · HTTP 500 (http-error) · Time to response 5020 ms (critical)
-    (expanded) one table row + the session summary
 ```
 
-Expanding a group shows that request's row with these columns:
-
-| Column             | Source / meaning                                                 |
-| ------------------ | ---------------------------------------------------------------- |
-| `Method`           | HTTP method                                                      |
-| `URL`              | Request URL                                                      |
-| `Transport`        | `fetch` or `xhr`                                                 |
-| `Status`           | HTTP status, or `unavailable` when no response exists            |
-| `Lifecycle`        | `completed`, `failed` or `aborted`                               |
-| `Outcome`          | `success`, `http-error`, `network-error`, `timeout` or `aborted` |
-| `Queue`            | `sentAt - queuedAt`: wait before dispatch                        |
-| `Time to response` | `responseStartedAt - sentAt`: dispatch → headers                 |
-| `Response body`    | Headers → transport completion (XHR only)                        |
-| `UI render`        | Completion → explicit UI mark (only when supplied)               |
-| `ID`               | Unique request id                                                |
-
-The same expanded group also contains one session summary block answering **what needs
-attention**. It groups requests by endpoint, so a request fired on page load and one fired by
-a button/collapse land in the same section when they hit the same API:
+The expanded group contains the request row (`Method`, `URL`, `Transport`, `Status`,
+`Lifecycle`, `Outcome`, `Queue`, `Time to response`, `Response body`, `UI render`, `ID`) and a
+session summary grouped by endpoint:
 
 ```text
 TracePulse [CRITICAL] · 3 requests · 3 endpoints
@@ -377,57 +417,17 @@ TracePulse [CRITICAL] · 3 requests · 3 endpoints
   healthy       1 request across 1 endpoint · within limits
 ```
 
-| Section         | What it means                                                             |
-| --------------- | ------------------------------------------------------------------------- |
-| `care now`      | Critical timing, HTTP 5xx, network failure or timeout.                    |
-| `concern`       | Warning timing, HTTP 4xx or an abort.                                     |
-| `watch`         | Still normal, but a phase is within 20% of its warning boundary.          |
-| `not improving` | The endpoint's later samples are consistently slower than its first half. |
-| `healthy`       | Everything else; shown only when other sections are present.              |
-
-A healthy session collapses to `… · 3 endpoints · nothing needs attention`. Unavailable
-phases are always `unavailable`, never `0` or `normal`. HTTP 4xx and 5xx stay `completed` /
-`http-error` rows but are still called out in the summary because they need action. Any
-measured phase that grew since the previous sample of the same endpoint is appended to the
-group header as a coloured `↑` delta.
-
-Set `console.collapsible: false` to print the header as a plain line. Set
-`console.replace: true` when you prefer one literal session table that is cleared and redrawn
-in place; that mode also clears your application's own console output.
-
-Set `console.panel: true` to keep that single live table out of the console entirely. Browser
-DevTools cannot remove or update one entry, so the reporter appends one collapsed overlay to
-the page and updates that same panel in place. Expanding it shows the session summary, the
-page report and one row per request occurrence — repeated URLs are never merged — while the
-console and its history stay untouched. The panel honours `enabled`, `level`, `useColors` and
-`showTable`, and falls back to the console modes above when the runtime has no DOM.
+Need a live view without touching the console? Set `console.panel: true`:
 
 ```ts
 createMonitor({ console: { panel: true } })
 ```
 
-```text
-▸ TracePulse [WARNING] · 3 requests · 2 endpoints · 4.2 kB declared
-    (expanded) session summary + page report + one table row per request
-```
+The reporter appends one collapsed overlay to the page and updates that same panel in place,
+one row per request occurrence, with the session summary and page report inside. DevTools
+cannot update a console entry in place, which is exactly the limitation this mode solves.
 
-Set `console.level: 'warning'` (or `'critical'` / `'off'`) to hide healthy reports; requests
-below the level are still accumulated but never printed. `console.onlyIssues: true` is a
-separate pass/fail switch: it hides green requests while keeping warnings, criticals,
-failures, HTTP errors and near-limit (`watch`) entries, without raising the severity floor.
-A build can choose the default level with `TRACEPULSE_LOG_LEVEL`, and end-user thresholds can
-change without a restart:
-
-```ts
-monitor.setThresholds({ timeToResponseMs: { warningMs: 3000, criticalMs: 5000 } })
-```
-
-See [the console output example](examples/console-output.md) for the full contract.
-
-## Reports
-
-The root entry keeps a bounded history of terminal measurements; rendering is an opt-in
-subpath so applications that never export pay nothing for it:
+Need a file for a teammate, a ticket or a CI artefact? Export the bounded report:
 
 ```ts
 import { createHtmlReport, downloadHtmlReport } from '@codewithrajat/tracepulse/report'
@@ -436,453 +436,921 @@ const html = createHtmlReport(monitor.getReport(), { title: 'Checkout latency' }
 downloadHtmlReport(html, 'checkout-latency.html')
 ```
 
-The file is self-contained: inline CSS, server-rendered rows and vanilla search/sort by every
-timing metric. It names the flagged stage and its declared owner, includes page timing, and
-binds no listener unless you call `installReportShortcut()`. See
-[Reporting](docs/guide/reporting.md) and the
-[report export example](examples/report-export.md).
+The HTML file is self-contained: inline CSS, server-rendered rows, and vanilla search/sort by
+every timing metric. It names the flagged stage and its declared owner, includes page timing,
+and binds no listener unless you call `installReportShortcut()`.
 
-## The toolchain (Vite+)
+---
 
-Everything runs through one CLI and one config file:
+## Code Examples
 
-| Command              | What it does                                          |
-| -------------------- | ----------------------------------------------------- |
-| `pnpm dev`           | `vp dev` — playground with HMR                        |
-| `pnpm check`         | `vp check` — Oxfmt + Oxlint (type-aware) + type-check |
-| `pnpm check:fix`     | `vp check --fix` — format and autofix lint            |
-| `pnpm test`          | `vp test run` — Vitest 5                              |
-| `pnpm test:coverage` | `vp test run --coverage` — V8 coverage + thresholds   |
-| `pnpm test:browser`  | Real Chromium smoke test; skips without a browser     |
-| `pnpm build`         | `vp pack` — ESM + CJS + IIFE + `.d.ts`/`.d.cts`       |
-| `pnpm check:dist`    | Verify built entry points and declarations            |
-| `pnpm verify`        | check, tests, pack, then dist/publint/attw/size-limit |
-| `pnpm docs:dev`      | VitePress docs site                                   |
+Explore the recipes in [`examples/`](./examples/README.md). Every page is copy-paste ready:
 
-`vite.config.ts` is the only config: Vite dev settings, `lint`, `fmt`, `test`, `pack`
-and the `staged` pre-commit policy all live there. Tests import from `vite-plus/test`,
-not `vitest`.
+| Example                                                     | Description                                                              | File                                                                               |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **Basic Monitoring**                                        | The smallest setup: one call, requests reported to the console           | [`examples/basic-monitoring.md`](./examples/basic-monitoring.md)                   |
+| **Excluding Requests**                                      | Silence analytics, health checks and third-party hosts                   | [`examples/exclusions.md`](./examples/exclusions.md)                               |
+| **Thresholds**                                              | Tune warning/critical boundaries per environment and per metric          | [`examples/thresholds.md`](./examples/thresholds.md)                               |
+| **Console Output**                                          | Read the table and summary; colours, tables and "unavailable"            | [`examples/console-output.md`](./examples/console-output.md)                       |
+| **Lifecycle Control**                                       | Deferred start, stop/restart, in-flight requests and the single-monitor rule | [`examples/lifecycle.md`](./examples/lifecycle.md)                             |
+| **Core Events & Plugins**                                   | Pulses, history, sampling and plugin teardown                            | [`examples/core-events.md`](./examples/core-events.md)                             |
+| **Testing**                                                 | Deterministic clocks, duration helpers and console assertions            | [`examples/testing.md`](./examples/testing.md)                                     |
+| **SSR & Workers**                                           | Import safety, platform guards and per-request instances                 | [`examples/ssr.md`](./examples/ssr.md)                                             |
+| **HTML & JSON Reports**                                     | Self-contained exports, retention, search/sort, owners and the shortcut  | [`examples/report-export.md`](./examples/report-export.md)                         |
+| **React / Next.js**                                         | Context provider, StrictMode-safe instance, App Router guard             | [`examples/react/README.md`](./examples/react/README.md)                           |
+| **Angular**                                                 | Root service, app initializer, `HttpClient`, zoneless and SSR            | [`examples/angular/README.md`](./examples/angular/README.md)                       |
+| **Vue / Nuxt**                                              | Plugin install, composable, client-only guard                            | [`examples/vue/README.md`](./examples/vue/README.md)                               |
+| **Svelte / SvelteKit**                                      | `onMount`, context, browser guard in a layout                            | [`examples/svelte/README.md`](./examples/svelte/README.md)                         |
+| **Vanilla JS / TS**                                         | Module and IIFE `<script>` usage, Vite HMR                               | [`examples/vanilla/README.md`](./examples/vanilla/README.md)                       |
+| **Node / Deno / Bun**                                       | Why process-wide monitoring is risky and how to scope it per request     | [`examples/node/README.md`](./examples/node/README.md)                             |
 
-## Core concepts
+[View All Examples](./examples/README.md)
 
-### Lifecycle
+---
 
-```
-idle ──start()──▶ running ──stop()──▶ stopped
-  ▲                  │                   │
-  └───── start() ────┘                   │
-                     └── start() ────────┘
+## 📖 Documentation
 
-dispose() ──▶ disposed (terminal)
-```
+| Documentation                                                  | Description                                                     |
+| -------------------------------------------------------------- | --------------------------------------------------------------- |
+| **[Getting Started](./docs/guide/getting-started.md)**         | Install, first monitor, everyday commands                       |
+| **[Configuration](./docs/guide/configuration.md)**             | Every setting, its default, merge rules and validation          |
+| **[Architecture](./docs/guide/architecture.md)**               | Parameters, defaults, pipeline, build and licensing             |
+| **[Scope & Protocols](./docs/guide/scope.md)**                 | In-scope transports, exclusions and open decisions              |
+| **[API Reference](./docs/guide/api.md)**                       | Every export and signature                                      |
+| **[Measurement Model](./docs/guide/measurement-model.md)**     | Timestamps, durations, lifecycle and outcomes                   |
+| **[Core Concepts](./docs/guide/core-concepts.md)**             | Lifecycle, events, history, sampling and plugins                |
+| **[Plugins](./docs/guide/plugins.md)**                         | Extend an instance without touching internals                   |
+| **[Reporting](./docs/guide/reporting.md)**                     | Retention, report contents and privacy                          |
+| **[Migration](./docs/guide/migration.md)**                     | Upgrade from single-number thresholds                           |
+| **[Troubleshooting](./docs/guide/troubleshooting.md)**         | Common failures and their causes                                |
 
-| Status     | Meaning                                                           |
-| ---------- | ----------------------------------------------------------------- |
-| `idle`     | Created, not recording yet (also the state when `enabled: false`) |
-| `running`  | `pulse()` records and emits                                       |
-| `stopped`  | Paused; `pulse()` is a no-op until `start()` again                |
-| `disposed` | Terminal. Listeners cleared, plugin teardowns executed            |
+---
 
-`start()` and `stop()` are idempotent. `dispose()` is idempotent.
+## Installation & Setup
 
-### Options
+For detailed installation instructions, see the
+[Getting Started guide](./docs/guide/getting-started.md).
 
-| Option       | Type           | Default                     | Description                                                          |
-| ------------ | -------------- | --------------------------- | -------------------------------------------------------------------- |
-| `name`       | `string`       | `"tracepulse"`              | Instance name used in messages. Trimmed.                             |
-| `enabled`    | `boolean`      | `true`                      | When `false`, the instance never starts.                             |
-| `sampleRate` | `number`       | `1`                         | Fraction (`0`–`1`) of pulses that are recorded.                      |
-| `maxHistory` | `number`       | `50`                        | Max pulses kept in memory. `0` disables history (events still fire). |
-| `clock`      | `() => number` | `Date.now`                  | Timestamp provider.                                                  |
-| `idFactory`  | `() => string` | `crypto.randomUUID()`-based | Id provider.                                                         |
-
-Invalid options throw a `TracePulseError` with code `INVALID_OPTION`.
-
-```ts
-import { TracePulseError } from '@codewithrajat/tracepulse'
-
-try {
-  new TracePulse({ sampleRate: 1.5 })
-} catch (error) {
-  if (error instanceof TracePulseError && error.code === 'INVALID_OPTION') {
-    // handle it
-  }
-}
-```
-
-### Events
-
-| Event     | Payload                 | When                                                |
-| --------- | ----------------------- | --------------------------------------------------- |
-| `start`   | `{ timestamp: number }` | Instance starts                                     |
-| `stop`    | `{ timestamp: number }` | Instance stops                                      |
-| `pulse`   | `PulseEvent`            | A pulse is recorded                                 |
-| `error`   | `Error`                 | A plugin teardown fails while disposing             |
-| `dispose` | `{ timestamp: number }` | Instance is disposed (before listeners are cleared) |
-
-Dispatch is synchronous and predictable: a throwing listener aborts the remaining
-listeners and propagates to the caller of `pulse()` / `start()`.
-
-### Plugins
-
-Plugins receive a deliberately narrow API and may return a teardown function.
-
-```ts
-import type { TracePulsePlugin } from '@codewithrajat/tracepulse'
-
-const metrics: TracePulsePlugin = {
-  name: 'metrics',
-  setup(api) {
-    console.log(`${api.name} is ${api.status}`)
-    return api.on('pulse', (event) => report(event))
-  },
-}
-
-const pulse = createTracePulse().use(metrics)
-```
-
-Plugin names are unique per instance. If `setup()` throws, registration is rolled back
-and a `PLUGIN_ERROR` is thrown with the original error as `cause`. Teardown failures are
-emitted on the `error` event and do not prevent other plugins from cleaning up.
-
-## Recipes
-
-### Deterministic tests
-
-```ts
-const pulse = createTracePulse({
-  clock: () => 1_000,
-  idFactory: () => 'id-1',
-})
-```
-
-### Framework integration
-
-Create the instance where the framework's lifecycle lives and dispose it on teardown.
-
-```ts
-// Vue 3
-import { onScopeDispose } from 'vue'
-import { createTracePulse } from '@codewithrajat/tracepulse'
-
-export function useTracePulse() {
-  const pulse = createTracePulse({ name: 'vue-app' })
-  pulse.start()
-  onScopeDispose(() => pulse.dispose())
-  return pulse
-}
-```
-
-```ts
-// React 18+
-import { useEffect, useState } from 'react'
-import { createTracePulse, type TracePulse } from '@codewithrajat/tracepulse'
-
-export function useTracePulse(): TracePulse | null {
-  const [pulse, setPulse] = useState<TracePulse | null>(null)
-
-  useEffect(() => {
-    const instance = createTracePulse({ name: 'react-app' })
-    instance.start()
-    setPulse(instance)
-
-    return () => {
-      setPulse(null)
-      instance.dispose()
-    }
-  }, [])
-
-  return pulse
-}
-```
-
-### CDN / `<script>`
+The package has no runtime dependencies. It does not require a bundler — an IIFE build is
+available for a plain `<script>` tag:
 
 ```html
 <script src="https://unpkg.com/@codewithrajat/tracepulse@1/dist/index.iife.global.js"></script>
 <script>
-  const pulse = TracePulse.createTracePulse({ name: 'cdn' })
-  pulse.start()
-  pulse.pulse('hello')
+  const monitor = TracePulse.createMonitor({ console: { panel: true } })
 </script>
 ```
 
-### SSR safety
+---
 
-Importing the package has no side effects and touches no globals (the id fallback is
-guarded by `typeof`). Create instances per request rather than at module scope.
+## Usage
 
-## API
+For comprehensive usage examples and the full API, see the
+[Usage guide](./docs/guide/getting-started.md) and the
+[API reference](./docs/guide/api.md).
 
-| Export                                                   | Kind     | Notes                                                                  |
-| -------------------------------------------------------- | -------- | ---------------------------------------------------------------------- |
-| `TracePulse`                                             | class    | Core instance; `static version`                                        |
-| `createTracePulse(options?)`                             | function | Factory, same as `new TracePulse(options)`                             |
-| `TracePulseError`                                        | class    | `code`, `cause`, `name`                                                |
-| `isTracePulseError(value)`                               | function | `instanceof` narrowing helper (realm-scoped; use `code` across copies) |
-| `invariant(condition, code, message)`                    | function | Assertion helper used internally                                       |
-| `TypedEventEmitter<Events>`                              | class    | Standalone typed emitter                                               |
-| `DEFAULT_OPTIONS`                                        | const    | Frozen TracePulse instance defaults                                    |
-| `createId(prefix?)`                                      | function | UUID with a non-crypto fallback                                        |
-| `isRecord(value)` / `isFunction(value)`                  | function | Runtime guards                                                         |
-| `VERSION`                                                | const    | Build-time injected package version                                    |
-| `resolveConfig(input?)`                                  | function | Merges config overrides with defaults                                  |
-| `DEFAULT_CONFIG`                                         | const    | Deeply frozen monitor configuration defaults                           |
-| `createMonitor(config?)`                                 | function | Creates the request monitor; auto-starts by default                    |
-| `Monitor`                                                | type     | `start()` / `stop()` lifecycle surface                                 |
-| `MonitorConfig`, `MonitorConfigInput`                    | type     | Resolved config / partial input                                        |
-| `ThresholdConfig` / `ThresholdConfigInput`               | type     | Config groups; each metric has `warningMs` + `criticalMs`              |
-| `DurationThreshold` / `DurationThresholdInput`           | type     | One explicit warning/critical pair (ms)                                |
-| `ColorConfig`, `ConsoleConfig`                           | type     | Configuration groups                                                   |
-| `OwnershipConfig`, `OwnershipConfigInput`                | type     | Declared owner labels for flagged phases and failure classes           |
-| `RequestMeasurement` + lifecycle variants                | type     | Discriminated union on `lifecycle`                                     |
-| `RequestTiming`, `ResponseMetadata`                      | type     | Monotonic timing and response metadata                                 |
-| `getRequestDurations(timing)` / `elapsedMs()`            | function | Derive durations; `undefined` when unavailable                         |
-| `RequestOutcome` + outcome variants                      | type     | `success` / `http-error` / `network-error` / `timeout` / `aborted`     |
-| `RequestLifecycleState`, `TerminalRequestLifecycleState` | type     | Lifecycle state unions                                                 |
-| `TracePulseOptions`, `ResolvedTracePulseOptions`         | type     | Constructor input / resolved output                                    |
-| `PulseEvent`, `PulseData`, `TracePulseEventMap`          | type     | Event shapes                                                           |
-| `TracePulseStatus`, `Clock`, `IdFactory`                 | type     | Lifecycle and injectables                                              |
-| `TracePulsePlugin`, `TracePulsePluginApi`                | type     | Plugin contract                                                        |
-| `TracePulseErrorCode`, `TracePulseErrorOptions`          | type     | Error contract                                                         |
-| `TypedEventListener<Payload>`, `Unsubscribe`             | type     | Emitter helper types                                                   |
+---
 
-Full reference: **[docs/guide/api.md](docs/guide/api.md)** (or the published docs site).
-Architecture, every parameter default and the licensing structure:
-**[docs/guide/architecture.md](docs/guide/architecture.md)**.
-Runnable, copy-paste examples per framework: **[examples/README.md](examples/README.md)**.
+## Changelog
 
-## Package formats
+See [CHANGELOG.md](./CHANGELOG.md) for release history and updates.
 
-| Format             | File                        | Notes                                                     |
-| ------------------ | --------------------------- | --------------------------------------------------------- |
-| ESM                | `dist/index.js`             | `import`, minified, tree-shakeable (`sideEffects: false`) |
-| CJS                | `dist/index.cjs`            | `require()`, with `dist/index.d.cts` types                |
-| IIFE               | `dist/index.iife.global.js` | `<script>` / CDN, exposes `globalThis.TracePulse`         |
-| Types (ESM)        | `dist/index.d.ts`           | —                                                         |
-| Types (CJS)        | `dist/index.d.cts`          | —                                                         |
-| ESM (report)       | `dist/report.js`            | `@codewithrajat/tracepulse/report`, opt-in renderers      |
-| CJS (report)       | `dist/report.cjs`           | `require('@codewithrajat/tracepulse/report')`             |
-| Types (report)     | `dist/report.d.ts`          | —                                                         |
-| Types (report CJS) | `dist/report.d.cts`         | —                                                         |
+---
 
-- No source maps are generated or shipped.
-- Declarations are plain `.d.ts`/`.d.cts` and work with **TypeScript 4.7+**, even
-  though development happens on TypeScript 7.
-- The ESM build is minified but keeps static exports, so bundlers still tree-shake
-  unused modules and exports.
+### Latest Release
 
-## Requirements
+Check the [releases page](https://github.com/malikrajat/tracepulse/releases) for the most
+recent version and changes.
 
-- **Runtime:** ES2022 — Node 18+, modern browsers, Deno, Bun, workers.
-- **Development:** Node `^22.18.0 || ^24.11.0 || >=26` (required by Vite+ / Vitest 5)
-  and pnpm 11. See `.nvmrc`.
-
-## Project structure
-
-```
-.
-├── vite.config.ts            # the only config: dev, lint, fmt, test, pack, staged
-├── src/
-│   ├── index.ts              # public entry point
-│   ├── version.ts            # __VERSION__ injected by the build
-│   ├── config/
-│   │   ├── config.types.ts   # MonitorConfig, ThresholdConfig, ColorConfig, ConsoleConfig
-│   │   ├── config.defaults.ts# DEFAULT_CONFIG (deeply frozen)
-│   │   ├── resolve-config.ts # resolveConfig(): pure merge
-│   │   ├── validate-config.ts# runtime validation (internal)
-│   │   └── index.ts          # public configuration barrel
-│   ├── thresholds/           # internal warning/critical evaluator
-│   ├── instrumentation/      # internal fetch/XHR installers
-│   ├── reporting/            # internal console reporter
-│   ├── monitor/              # public createMonitor + Monitor type
-│   ├── core/
-│   │   ├── trace-pulse.ts    # ← your logic goes here
-│   │   ├── options.ts        # validation + defaults
-│   │   ├── errors.ts         # TracePulseError + invariant
-│   │   └── types.ts          # public types
-│   └── utils/
-│       ├── emitter.ts        # TypedEventEmitter
-│       ├── guards.ts         # isRecord / isFunction
-│       └── id.ts             # createId
-├── tests/
-│   ├── config/               # configuration merge + validation specs
-│   ├── instrumentation/      # fetch/XHR wrappers, URL and identity specs
-│   ├── integration/          # public-entry lifecycle and transport specs
-│   ├── monitor/              # createMonitor lifecycle specs
-│   ├── reporting/            # console reporter specs
-│   ├── thresholds/           # threshold boundary specs
-│   ├── unit/                 # core Vitest specs (import from 'vite-plus/test')
-│   └── types/                # compile-time API tests
-├── playground/               # `pnpm dev` sandbox (vanilla TS)
-├── docs/                     # VitePress site
-├── .vite-hooks/              # `vp staged` pre-commit hook
-└── .github/workflows/        # CI, release, docs deployment
-```
-
-## Development
-
-```bash
-pnpm install
-pnpm dev            # playground at http://localhost:5173
-pnpm check          # format + lint + type-check
-pnpm test           # unit and public-entry integration tests
-pnpm test:browser   # real Chromium smoke test (optional)
-pnpm verify         # full gate (check, coverage, pack, package checks)
-```
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for commit conventions, changesets and the PR
-checklist.
-
-The repository-root `index.html` is only the Vite entry for the manual playground. It is not
-the documentation site (that is `docs/index.md`) and it is not published: `package.json#files`
-ships only the built package, README, LICENSE and CHANGELOG.
-
-## Publishing
-
-The package is intended to be published as **`@codewithrajat/tracepulse`** - the scope
-belongs to the `codewithrajat` npm account, so no extra org setup is required.
-
-The first-release notes are recorded in the `1.0.0` entry of `CHANGELOG.md`, and no release
-changesets remain. On a working tree that differs from the base branch, `pnpm changeset
-status` exits with code 1 and reports "Some packages have been changed but no changesets were
-found"; that is expected for this first release.
-
-```bash
-npm login
-pnpm verify
-npm publish --dry-run   # inspect the tarball
-npm publish --access public
-```
-
-`prepublishOnly` runs `vp pack`, so a stale `dist/` can never be published.
-
-### Subsequent releases (Changesets)
-
-```bash
-pnpm changeset        # describe the change, pick patch/minor/major
-git add . && git commit -m "feat: ..." && git push
-```
-
-The release workflow opens a **Version Packages** PR; merging it publishes to npm with
-provenance and creates the GitHub release. `NPM_TOKEN` must be set as a repository
-secret (granular token with read/write access to `@codewithrajat`).
-
-## FAQ
-
-### General
-
-**Is TracePulse a profiler or a general diagnostics library?**
-No. It is a **request diagnostics** tool: it instruments `fetch()`/`XMLHttpRequest`, measures
-their lifecycle, classifies durations against thresholds and prints a console report. It does
-not inspect components, renders, memory or the network panel. The core `TracePulse` instance is
-a separate, generic event/history/plugin primitive.
-
-**Does it send data anywhere or need a backend?**
-Nothing leaves the page. The package contains no `fetch` calls of its own, no endpoints and no
-account. Exclusions filter only **your** application's requests.
-
-**Can I use it with React, Angular, Vue or Svelte?**
-Yes — directly. There is no adapter package because there is nothing to adapt: the library has
-no framework imports. You own the lifecycle (provider/hook, service, plugin or `onMount`).
-Copy-paste code lives in [react](./examples/react/README.md), [angular](./examples/angular/README.md),
-[vue](./examples/vue/README.md) and [svelte](./examples/svelte/README.md).
-
-**Is the package on npm?**
-Not yet — `1.0.0` is unreleased, so `npm install @codewithrajat/tracepulse` fails today. Install
-from the repository in the meantime:
-
-```bash
-pnpm add file:../path/to/TracePulse
-```
-
-**Can I use it commercially?**
-Yes. [MIT](./LICENSE) — no copyleft, no runtime dependencies, no attribution burden beyond
-keeping the license notice when you redistribute the code.
-
-### Behaviour
-
-**Why is "Response body" always `unavailable` for fetch?**
-`fetch()` resolves when headers arrive, and TracePulse never reads or clones the body just to
-measure it. XHR exposes a completion event, so the interval is available there.
-
-**Why does `uiUpdateMs` never fire?**
-No transport populates `uiTiming`, and V1 exposes no API to supply it. The setting defines
-boundaries for a measurement point that does not exist yet — tuning it changes nothing.
-
-**Why is "Time to response" not the full download time for fetch?**
-Because that is the end of the _observed_ fetch lifecycle. Full download would require
-consuming the body, which the library deliberately refuses to do.
-
-**Does `stop()` cancel in-flight requests?**
-No. Requests keep their original result; TracePulse only stops observing them. No terminal
-report is emitted after `stop()`, and no synthetic "aborted" report is invented.
-
-**Why do I get two reports per request after saving a file?**
-A hot-reload creates a second module instance with a second monitor, and both wrap `fetch`.
-Stop the previous monitor in `import.meta.hot.dispose()` — see
-[the HMR guard](./examples/basic-monitoring.md).
-
-**Why does starting a second monitor throw `INVALID_STATE`?**
-V1 supports one running monitor per loaded module instance. Call `stop()` on the first monitor
-before starting another, and keep a single monitoring module per application.
-
-**Why is `maxHistory: 0` still emitting events?**
-`0` disables _storage_, not recording: `pulse()` still returns and emits the event, it just is
-not retained in `history`.
-
-### Build and types
-
-**Why is there a `.d.cts` file?**
-`package.json` is `"type": "module"`, so every `.d.ts` is interpreted as ESM. `require()`
-consumers need CommonJS-flavoured declarations; `dist/index.d.cts` provides them.
-`pnpm check:types` (Are The Types Wrong) enforces this.
-
-**Why are bundles minified and source-map-free?**
-Smaller installs and predictable tarballs. Builds are reproducible from source, and the
-declaration files keep full JSDoc for editor hints. Flip `pack.minify` / `pack.sourcemap` in
-`vite.config.ts` if you ever need debuggable output.
-
-**Does it work with older TypeScript?**
-Yes. The package is consumed as plain `.d.ts`/`.d.cts` and avoids TS 5.2+ only syntax.
-Development and CI use TypeScript 7; consumers on TS 4.7+ get the same types.
-
-**Is it tree-shakeable?**
-Yes. `sideEffects: false`, static ESM exports and an ESM entry mean an import of
-`createTracePulse` alone drops the monitor, instrumentation and reporter.
-
-### Troubleshooting
-
-**Something throws `INVALID_STATE`**
-Two different causes, same code: the instance was disposed (`dispose()` is terminal — create a
-new one), or a second monitor tried to start while one was already running (call `stop()`
-first).
-
-**Nothing appears in the console**
-Check, in order: the monitor was created (and not with `enabled: false`), `console.enabled` is
-not `false`, `console.level` is not filtering the report (`'warning'` hides healthy requests,
-`'off'` hides everything), the request was not excluded, and the request actually completed —
-the reporter prints nothing for in-flight requests.
-
-**Does it work under SSR, Node or in a worker?**
-Importing is always safe. Creating a monitor is not: it patches the realm's global `fetch`, so
-guard it to the browser. Use `createTracePulse()` per request on the server — see
-[SSR and workers](./examples/ssr.md) and [Node](./examples/node/README.md).
-
-## Support
-
-- **Email:** [support@theraterajatmalik.dev](mailto:support@theraterajatmalik.dev) — questions,
-  integration help, and private reports.
-- **npm:** [@codewithrajat/tracepulse](https://www.npmjs.com/package/@codewithrajat/tracepulse)
-- **Repository:** [malikrajat/tracepulse](https://github.com/malikrajat/tracepulse)
-- **Issues:** [github.com/malikrajat/tracepulse/issues](https://github.com/malikrajat/tracepulse/issues)
-- **Contributing:** [CONTRIBUTING.md](./CONTRIBUTING.md) ·
-  **Code of Conduct:** [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
-- **Security:** [SECURITY.md](./SECURITY.md) — please never report vulnerabilities in a public
-  issue.
-
-You can expect a first reply within **72 hours**.
+---
 
 ## License
 
-[MIT](./LICENSE) © Rajat Malik
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**TL;DR:** You can use this library freely in commercial and personal projects.
+
+### MIT License Summary
+
+**You can:**
+
+- Use commercially
+- Modify the code
+- Distribute
+- Use privately
+
+**You must:**
+
+- Include the license and copyright notice
+
+**You cannot:**
+
+- Hold the author liable
+
+---
+
+## FAQ
+
+<details>
+<summary><strong>What exactly does TracePulse measure?</strong></summary>
+
+It instruments `fetch()` and `XMLHttpRequest` and measures four non-overlapping phases:
+**queue** (`queuedAt` → `sentAt`), **time to response** (`sentAt` → `responseStartedAt`),
+**response body** (`responseStartedAt` → `responseCompletedAt`, XHR only) and **UI render**
+(completion → an explicitly supplied UI mark). Each phase is compared against its own
+warning/critical pair and rendered as one console group.
+
+</details>
+
+<details>
+<summary><strong>Does it send data anywhere or need a backend?</strong></summary>
+
+**No.** The package contains no endpoints, no account and no analytics. Requests are measured
+in memory and printed locally. Exclusions filter only your application's own requests, and
+response bodies, request bodies and sensitive headers are never stored.
+
+</details>
+
+<details>
+<summary><strong>Which runtimes and frameworks are supported?</strong></summary>
+
+The core is framework-agnostic and has no DOM or Node.js imports. It runs in modern browsers,
+web workers, Node 18+, Deno, Bun and edge runtimes. React, Angular, Vue and Svelte need no
+adapter package — you own the lifecycle; copy-paste recipes live in
+[`examples/`](./examples/README.md).
+
+</details>
+
+<details>
+<summary><strong>Is it safe to import during server-side rendering?</strong></summary>
+
+**Yes.** Importing has no side effects and touches no globals. Creating a **monitor** is the
+part that patches the realm's global `fetch`, so guard it to the browser. On the server, use
+`createTracePulse()` per request instead. See [SSR and workers](./examples/ssr.md).
+
+</details>
+
+<details>
+<summary><strong>How do I stop it from measuring analytics or health checks?</strong></summary>
+
+Add case-sensitive substrings of the full URL to `exclude`:
+
+```ts
+createMonitor({
+  exclude: ['/telemetry', 'https://analytics.example.com', '/health']
+})
+```
+
+Matching requests are still executed normally; they are simply not observed.
+
+</details>
+
+<details>
+<summary><strong>How do I customise the thresholds?</strong></summary>
+
+Every phase takes an explicit pair:
+
+```ts
+createMonitor({
+  thresholds: {
+    timeToResponseMs: { warningMs: 1000, criticalMs: 2000 },
+    responseProcessingMs: { warningMs: 300, criticalMs: 500 }
+  }
+})
+```
+
+Nested groups merge per property, so untouched phases keep their defaults. Boundaries can be
+changed later with `monitor.setThresholds()`, even while the monitor is running.
+
+</details>
+
+<details>
+<summary><strong>Why is "Response body" always <code>unavailable</code> for fetch?</strong></summary>
+
+`fetch()` resolves when headers arrive, and TracePulse deliberately never reads or clones the
+body just to time it. `XMLHttpRequest` exposes a completion event, so the interval is available
+there. The full download time is intentionally not part of the observed fetch lifecycle.
+
+</details>
+
+<details>
+<summary><strong>Why does <code>uiUpdateMs</code> never produce a value?</strong></summary>
+
+No transport populates `uiTiming`, and V1 exposes no API to supply it. The threshold defines
+boundaries for a measurement point that does not exist yet, so tuning it changes nothing.
+
+</details>
+
+<details>
+<summary><strong>Can I see the report without reading the console?</strong></summary>
+
+**Yes.** Set `console.panel: true` for a collapsed in-page panel that updates in place, or
+export a self-contained HTML/JSON file with `createHtmlReport()` / `createJsonReport()` from
+`@codewithrajat/tracepulse/report`. Reports are built entirely locally.
+
+</details>
+
+<details>
+<summary><strong>How large is the package, and will it bloat my bundle?</strong></summary>
+
+The root entry is a minified ESM build with `sideEffects: false` and static exports, so unused
+modules are tree-shaken away. A size-limit gate keeps the published root bundle under 17 kB
+brotli. The HTML/JSON renderer lives on an opt-in subpath, so applications that never export a
+report pay nothing for it.
+
+</details>
+
+<details>
+<summary><strong>Does <code>stop()</code> cancel in-flight requests?</strong></summary>
+
+**No.** Requests keep their original results and XHR keeps its native lifecycle. TracePulse
+only stops observing: no terminal report is produced after `stop()`, and no synthetic
+"aborted" entry is invented.
+
+</details>
+
+<details>
+<summary><strong>Why do I get two reports per request after a hot reload?</strong></summary>
+
+A hot reload can create a second module instance with a second monitor, and both wrap
+`fetch`. Stop the previous monitor in `import.meta.hot.dispose()` — see the
+[HMR guard](./examples/basic-monitoring.md).
+
+</details>
+
+<details>
+<summary><strong>Why does creating a second monitor throw <code>INVALID_STATE</code>?</strong></summary>
+
+V1 allows one running monitor per loaded module instance. Call `stop()` on the first monitor
+before starting another, and keep a single monitoring module per application. Separate copies
+of the package or separate JavaScript realms are not globally coordinated.
+
+</details>
+
+<details>
+<summary><strong>Can I use it with axios or TanStack Query?</strong></summary>
+
+In the browser those libraries ultimately use `fetch` or `XMLHttpRequest`, so their requests
+are observed like any other. Node HTTP clients that bypass those globals (for example axios in
+Node, which uses the `http` module) are outside the V1 scope. See
+[Scope & Protocols](./docs/guide/scope.md).
+
+</details>
+
+<details>
+<summary><strong>Is this library free for commercial use?</strong></summary>
+
+**Yes.** Licensed under **MIT** — use it in commercial products, SaaS applications and
+enterprise projects. You only need to retain the copyright notice. See the
+[License](#license) section.
+
+</details>
+
+---
+
+## Performance Optimization
+
+### Optimization Tips
+
+#### 1. Create the Monitor Once at Bootstrap
+
+```ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+// One monitor for the application, not one per component or per request.
+const monitor = createMonitor({ autoStart: true })
+```
+
+Repeated `start()` calls are idempotent, so there is no reason to create a second monitor for
+each feature module.
+
+#### 2. Exclude Noise Before It Reaches the Reporter
+
+```ts
+createMonitor({
+  exclude: ['/telemetry', '/health', '/metrics', 'https://cdn.example.com']
+})
+```
+
+Exclusions are checked before a measurement is produced, which keeps both the console and the
+bounded report store focused on the requests you actually care about.
+
+#### 3. Tune the Console for Production
+
+```ts
+createMonitor({
+  console: {
+    level: 'warning', // hide healthy requests
+    onlyIssues: false,
+    showTable: true,
+    collapsible: true
+  }
+})
+```
+
+`level` is a severity floor (`all`, `warning`, `critical`, `off`). `onlyIssues` is a separate
+pass/fail switch that hides green entries while keeping warnings, criticals, HTTP errors and
+near-limit (`watch`) entries. A build can choose the default floor with
+`TRACEPULSE_LOG_LEVEL`.
+
+#### 4. Cap Retained Report Data
+
+```ts
+createMonitor({ report: { enabled: true, maxEntries: 200 } })
+```
+
+The report store is bounded; oldest measurements are dropped first. `maxEntries: 0` retains
+nothing while console reporting keeps working.
+
+#### 5. Keep the Renderer Out of the Root Bundle
+
+```ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+// No import from '@codewithrajat/tracepulse/report' unless you actually export.
+```
+
+The report subpath is a separate entry point, so search/sort UI and HTML/JSON rendering are
+tree-shaken from applications that never export.
+
+---
+
+## Testing Examples
+
+### Unit Testing with Vitest
+
+```ts
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+const originalFetch = globalThis.fetch
+
+afterEach(() => {
+  globalThis.fetch = originalFetch
+  vi.restoreAllMocks()
+})
+
+describe('TracePulse monitor', () => {
+  it('observes a request and preserves the original response', async () => {
+    const monitor = createMonitor({
+      autoStart: false,
+      console: { enabled: false }
+    })
+
+    const response = new Response('{"ok":true}', {
+      status: 200,
+      headers: { 'content-type': 'application/json' }
+    })
+
+    globalThis.fetch = vi.fn().mockResolvedValue(response)
+
+    monitor.start()
+    const result = await fetch('/api/items')
+    monitor.stop()
+
+    expect(result).toBe(response)
+    expect(monitor.getReport().measurements).toHaveLength(1)
+  })
+})
+```
+
+For deterministic pulse tests, inject the clock and the id factory:
+
+```ts
+import { createTracePulse } from '@codewithrajat/tracepulse'
+
+const pulse = createTracePulse({
+  clock: () => 1_000,
+  idFactory: () => 'id-1'
+})
+```
+
+### End-to-End Testing with Playwright
+
+```ts
+import { test, expect } from '@playwright/test'
+
+test('reports a request in the console', async ({ page }) => {
+  const messages: string[] = []
+
+  page.on('console', (message) => messages.push(message.text()))
+
+  await page.goto('/checkout')
+  await page.getByRole('button', { name: 'Load items' }).click()
+
+  await expect.poll(() => messages.join('\n')).toContain('TracePulse')
+})
+```
+
+The workspace runs its unit suite with **Vitest** through Vite+, and the optional browser smoke
+test uses real Chromium. See [`examples/testing.md`](./examples/testing.md) for console
+assertions and duration-helper tests.
+
+---
+
+## Migration Guide
+
+### From Manual Timing Code
+
+| Manual approach                                   | TracePulse                                                     |
+| ------------------------------------------------- | -------------------------------------------------------------- |
+| `performance.now()` before and after `fetch()`    | `monitor.getReport()` — phases already separated               |
+| `console.time()` / `console.timeEnd()`            | Automatic console group per request                            |
+| `Date.now()` arithmetic around XHR                | `getRequestDurations(timing)` with a single monotonic clock    |
+| Hand-written slow-request `if` statements         | `thresholds` with explicit warning/critical pairs              |
+| A custom table printed after every request        | Collapsible groups, session summary or the in-place panel      |
+| Ad-hoc metrics uploaded to a backend              | Local HTML/JSON report; nothing leaves the page by default     |
+
+### From a Browser APM SDK
+
+| APM SDK concept                     | TracePulse                                             |
+| ----------------------------------- | ------------------------------------------------------ |
+| Global agent / auto-init script     | `createMonitor()` — one import, no agent               |
+| Backend ingestion endpoint          | None; local console and files only                     |
+| Custom dashboards                   | Session summary plus self-contained HTML/JSON reports  |
+| Per-request transaction timing      | Queue, time to response, response body and UI render   |
+| Sampling and unlimited retention    | Bounded `report.maxEntries`, optional core `sampleRate` |
+
+### From Single-Number Thresholds (pre-1.0 dev builds)
+
+Early builds accepted one number per category. 1.0.0 requires an explicit pair, and
+`requestDurationMs` is now `timeToResponseMs`:
+
+```ts
+// Before (rejected)
+thresholds: { requestDurationMs: 3000 }
+
+// After (valid)
+thresholds: {
+  timeToResponseMs: { warningMs: 2000, criticalMs: 3000 }
+}
+```
+
+The old key and numeric form are rejected, not reinterpreted. See the
+[threshold pairs guide](./docs/guide/migration.md).
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+#### Issue: nothing appears in the console
+
+```ts
+// Check the chain in order:
+const monitor = createMonitor({
+  enabled: true, // not false
+  autoStart: true, // or call monitor.start() yourself
+  exclude: [], // the request was not filtered out
+  console: {
+    enabled: true,
+    level: 'all' // 'warning' hides healthy requests, 'off' hides everything
+  }
+})
+```
+
+The reporter prints nothing for in-flight requests — the request must reach a terminal state.
+
+#### Issue: `INVALID_STATE` when starting a monitor
+
+```ts
+const first = createMonitor()
+// const second = createMonitor() // a second start would throw while first is running
+
+first.stop()
+const second = createMonitor() // safe now
+```
+
+The same code is also used after `dispose()` on the core instance, which is terminal — create a
+new instance instead of reusing a disposed one.
+
+#### Issue: duplicate reports after editing a file
+
+```ts
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => monitor.stop())
+}
+```
+
+A hot reload created a second module instance; stopping the previous monitor removes the
+duplicate wrapper.
+
+#### Issue: "Response body" or "UI render" shows `unavailable`
+
+They are genuinely not observed: fetch does not consume the body, and V1 has no API to supply
+a UI mark. Unavailable phases are never rendered as `0` or `normal`.
+
+#### Issue: monitoring does nothing in Node
+
+`createMonitor()` patches the realm's global `fetch`. If your Node code uses a client that
+bypasses global fetch/XHR, TracePulse cannot see it. Use `createTracePulse()` for your own
+timings, or install a fetch-based client. See [Node](./examples/node/README.md).
+
+---
+
+## API Reference Quick Start
+
+### Inputs
+
+`createMonitor(config?)` accepts a partial `MonitorConfigInput`. Nested groups merge per
+property.
+
+| Setting                 | Type                                                | Default                                            | Description                                                           |
+| ----------------------- | --------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------- |
+| `enabled`               | `boolean`                                           | `true`                                             | When `false`, the monitor never starts; fixed at creation             |
+| `autoStart`             | `boolean`                                           | `true`                                             | Installs instrumentation immediately                                  |
+| `exclude`               | `string[]`                                          | `[]`                                               | Case-sensitive substrings of the full request URL                     |
+| `thresholds.queueMs`    | `{ warningMs, criticalMs }`                         | `100 / 300`                                        | Wait before dispatch                                                  |
+| `thresholds.timeToResponseMs` | `{ warningMs, criticalMs }`                   | `2000 / 3000`                                      | Dispatch → headers                                                    |
+| `thresholds.responseProcessingMs` | `{ warningMs, criticalMs }`               | `300 / 500`                                        | Headers → transport completion                                        |
+| `thresholds.uiUpdateMs` | `{ warningMs, criticalMs }`                         | `500 / 1000`                                       | Completion → explicit UI mark                                          |
+| `ownership`             | `Record<string, string>`                            | `{}`                                               | Declared owner labels per phase and failure class                     |
+| `colors`                | `{ normal, warning, critical }`                     | `#22c55e / #eab308 / #ef4444`                      | Console colours                                                       |
+| `console.enabled`       | `boolean`                                           | `true`                                             | Turn console reporting on or off                                      |
+| `console.level`         | `"all" \| "warning" \| "critical" \| "off"`         | `"all"`                                            | Minimum severity to print                                             |
+| `console.onlyIssues`    | `boolean`                                           | `false`                                            | Hide healthy entries, keep every issue and near-limit entry           |
+| `console.useColors`     | `boolean`                                           | `true`                                             | Colour-coded output                                                   |
+| `console.showTable`     | `boolean`                                           | `true`                                             | Include the request table                                             |
+| `console.collapsible`   | `boolean`                                           | `true`                                             | One collapsed group per request vs a plain header line                |
+| `console.replace`       | `boolean`                                           | `false`                                            | Clear and redraw one accumulated table (also clears app output)       |
+| `console.panel`         | `boolean`                                           | `false`                                            | Render an in-page overlay updated in place                            |
+| `page`                  | `PageConfig`                                        | `once`, `settleMs: 300`, resources on              | Navigation, paint, LCP and resource timing                            |
+| `report`                | `{ enabled, maxEntries }`                           | `true / 500`                                       | Bounded store behind `getReport()`                                    |
+
+### Outputs
+
+| Output                              | Kind                  | Description                                                              |
+| ----------------------------------- | --------------------- | ------------------------------------------------------------------------ |
+| Console groups                      | Reporter              | One collapsed group per terminal request plus the session summary        |
+| In-page panel                       | Reporter (`console.panel`) | Collapsed overlay with one row per request occurrence               |
+| `monitor.getReport()`               | `TracePulseReport`    | Frozen raw snapshot of retained measurements and settings                |
+| `createHtmlReport(snapshot)`        | `string`              | Self-contained HTML with inline CSS and search/sort                      |
+| `createJsonReport(snapshot)`        | `string`              | Classified report view as JSON                                           |
+| `createReportView(snapshot)`        | Object                | Classified entries, severities, stages, owners and rollups               |
+| `downloadHtmlReport(html, name?)`   | DOM helper            | Blob + `<a download>`; explicit call only                                |
+| `installReportShortcut(monitor)`    | DOM helper            | Opt-in `Ctrl/Cmd+Shift+E` export; returns an unsubscribe                 |
+| `pulse`, `start`, `stop`, `error`, `dispose` | Core events  | Typed events from `createTracePulse()`                                   |
+
+### Methods
+
+| Method                              | Owner     | Returns                    | Description                                              |
+| ----------------------------------- | --------- | -------------------------- | -------------------------------------------------------- |
+| `start()`                           | `Monitor` | `this`                     | Install instrumentation (idempotent)                     |
+| `stop()`                            | `Monitor` | `this`                     | Uninstall this monitor's wrappers (idempotent)           |
+| `page()`                            | `Monitor` | `PageLoadMeasurement \| undefined` | Latest page measurement                          |
+| `reportPage()`                      | `Monitor` | `this`                     | Print the page timing report                             |
+| `setThresholds(thresholds)`         | `Monitor` | `this`                     | Merge request threshold overrides at runtime            |
+| `getReport(options?)`               | `Monitor` | `TracePulseReport`         | Raw retained-measurement snapshot                       |
+| `clearMeasurements()`               | `Monitor` | `this`                     | Empty the report store                                  |
+| `pulse(name, data?)`                | `TracePulse` | `void`                  | Record a named pulse                                     |
+| `on(event, listener)`               | `TracePulse` | `Unsubscribe`           | Subscribe to a typed event                               |
+| `use(plugin)`                       | `TracePulse` | `this`                  | Register a plugin                                        |
+| `dispose()`                         | `TracePulse` | `void`                  | Terminal cleanup; listeners and plugins are released     |
+
+Full reference: **[docs/guide/api.md](./docs/guide/api.md)**.
+
+---
+
+## Best Practices
+
+### 1. Create One Monitor per Application
+
+```ts
+// bootstrap.ts
+import { createMonitor } from '@codewithrajat/tracepulse'
+
+export const monitor = createMonitor()
+```
+
+Framework providers, hooks or services can import the same instance instead of creating a new
+one. Store it where your app owns teardown and call `stop()` there.
+
+### 2. Guard Browser-Only Work on the Server
+
+```ts
+const isBrowser = typeof window !== 'undefined'
+
+export const monitor = isBrowser ? createMonitor() : undefined
+```
+
+Importing is always safe; patching globals is not. Use `createTracePulse()` per request on the
+server.
+
+### 3. Tune for the Environment
+
+```ts
+createMonitor({
+  console: { level: import.meta.env.PROD ? 'warning' : 'all' },
+  thresholds: {
+    timeToResponseMs: { warningMs: 2000, criticalMs: 3000 }
+  }
+})
+```
+
+Keep full output in development and raise the severity floor in production, or choose the
+default at build time with `TRACEPULSE_LOG_LEVEL`.
+
+### 4. Declare Ownership Instead of Guessing
+
+```ts
+createMonitor({
+  ownership: {
+    timeToResponseMs: 'platform-api',
+    responseProcessingMs: 'content-service',
+    serverError: 'platform-api'
+  }
+})
+```
+
+Reports only name a team when the application declared the mapping; TracePulse never infers
+an owner.
+
+---
+
+## Documentation
+
+- **[Getting Started](./docs/guide/getting-started.md)** - Install, first monitor, everyday commands
+- **[Configuration](./docs/guide/configuration.md)** - Every setting, default, merge rule and validation
+- **[Architecture](./docs/guide/architecture.md)** - Parameters, defaults, pipeline, build and licensing
+- **[Scope & Protocols](./docs/guide/scope.md)** - In-scope transports, exclusions and open decisions
+- **[API Reference](./docs/guide/api.md)** - Every export and signature
+- **[Measurement Model](./docs/guide/measurement-model.md)** - Timestamps, durations, lifecycle and outcomes
+- **[Core Concepts](./docs/guide/core-concepts.md)** - Lifecycle, events, history, sampling and plugins
+- **[Plugins](./docs/guide/plugins.md)** - Extend an instance without touching internals
+- **[Reporting](./docs/guide/reporting.md)** - Retention, report contents and privacy
+- **[Migration](./docs/guide/migration.md)** - Upgrade from single-number thresholds
+- **[Troubleshooting](./docs/guide/troubleshooting.md)** - Common failures and their causes
+
+---
+
+## Statistics
+
+[![npm](https://img.shields.io/badge/npm-1.0.0-blue?logo=npm)](https://www.npmjs.com/package/@codewithrajat/tracepulse)
+[![GitHub issues](https://img.shields.io/github/issues/malikrajat/tracepulse.svg)](https://github.com/malikrajat/tracepulse/issues)
+[![GitHub stars](https://img.shields.io/github/stars/malikrajat/tracepulse.svg?style=social)](https://github.com/malikrajat/tracepulse/stargazers)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/malikrajat/tracepulse/blob/main/LICENSE)
+
+---
+
+## Support This Project
+
+If **TracePulse** has helped you build better JavaScript applications, please consider:
+
+If this library has saved you development time and helped make request performance visible in your projects, **please consider giving it a star!**
+
+**Why star this repo?**
+
+- Help other developers discover this lightweight, optimized solution
+- Support continued development and improvements
+- Show appreciation for free, quality tools
+- Boost visibility in the JavaScript community
+- Supports ongoing development and maintenance
+- Encourages more open-source contributions
+- Helps other developers find quality tools
+
+### **Want More Quality Libraries?**
+
+This is just one of several useful libraries I've created. **[Explore my other JavaScript & web development libraries](https://github.com/malikrajat?tab=repositories)** that might solve your next challenge:
+
+- **Utility libraries** for common development tasks
+- **UI components** for better user experiences
+- **Performance tools** for optimization
+- **Mobile-friendly solutions** for responsive apps
+
+**Found them helpful?** A star on each repo you find useful helps tremendously! It takes just one click but means the world to open-source maintainers.
+
+[![GitHub](https://img.shields.io/badge/View_All_Repositories-181717?logo=github)](https://github.com/malikrajat?tab=repositories)
+[![GitHub followers](https://img.shields.io/github/followers/malikrajat?style=social)](https://github.com/malikrajat)
+[![GitHub stars](https://img.shields.io/github/stars/malikrajat/tracepulse?style=social)](https://github.com/malikrajat/tracepulse/stargazers)
+
+---
+
+## Support and Community
+
+### Getting Help
+
+Need assistance? We're here to help!
+
+| Support Channel | Link | Best For |
+|----------------|------|----------|
+| Bug Reports | [Report Bug](https://github.com/malikrajat/tracepulse/issues/new?template=bug_report.md) | Technical issues |
+| Feature Requests | [Request Feature](https://github.com/malikrajat/tracepulse/issues/new?template=feature_request.md) | New features |
+| Discussions | [Join Discussion](https://github.com/malikrajat/tracepulse/discussions) | General questions |
+| Email | [support@rajatmalik.dev](mailto:support@rajatmalik.dev?subject=TracePulse%20Support) | Direct support |
+
+### Documentation
+
+- [GitHub Repository](https://github.com/malikrajat/tracepulse)
+- [npm Package](https://www.npmjs.com/package/@codewithrajat/tracepulse)
+- [Live Demo](https://stackblitz.com/edit/vitejs-vite-jt62srqb)
+- [Changelog](https://github.com/malikrajat/tracepulse/blob/main/CHANGELOG.md)
+- [Support Guide](./SUPPORT.md)
+
+### Community
+
+- Star the repository to show support
+- Watch for updates and new releases
+- Share your use cases and feedback
+- Contribute code, examples or documentation
+
+### Stay Updated
+
+- Follow the project on [GitHub](https://github.com/malikrajat/tracepulse)
+- Star the repository for updates
+- Watch for new releases
+
+---
+
+## Acknowledgements
+
+This library was built to make request performance visible without adding a vendor, an agent or
+a network hop.
+
+Special thanks to:
+
+- **The JavaScript community** — for the standards, tooling and feedback that shaped this API
+- **Contributors** — for making the library better with every issue and pull request
+- **Everyone debugging in a console** — for reminding us that the fastest observability tool is
+  the one already open
+
+---
+
+## Other Libraries
+
+### Monitoring & Diagnostics
+
+| Library | Description | Link |
+| --- | --- | --- |
+| **@codewithrajat/rm-logvault** | Offline-first browser error tracking, logging and one-file diagnostics export. Redacts PII before writing, stores in IndexedDB, uploads only to your own endpoint. **Zero dependencies, tree-shakeable, framework-agnostic** — React, Vue, Angular, axios and TanStack Query adapters included. | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-logvault.svg)](https://www.npmjs.com/package/@codewithrajat/rm-logvault) |
+| **@codewithrajat/tracepulse** | Zero-dependency API request monitoring, timing and performance observability. Instruments `fetch()` and XHR automatically, measures queue, time-to-response, response-body and UI-render phases, classifies warning/critical thresholds and prints colour-coded console reports or self-contained HTML/JSON exports — no backend, agent or account. **Zero dependencies, tree-shakeable, framework-agnostic** — React, Angular, Vue, Svelte, Node and edge-runtime recipes included. | [![npm](https://img.shields.io/badge/npm-1.0.0-blue?logo=npm)](https://www.npmjs.com/package/@codewithrajat/tracepulse) |
+| **@codewithrajat/runtime-debug-panel** | Framework-independent runtime monitoring and diagnostics for browser JavaScript. Samples memory, performance and long-task metrics on a bounded schedule, detects runtime capabilities, and ships a Lit floating developer panel plus uPlot chart contracts through explicit, side-effect-free entry points. **Tree-shakeable ESM, zero framework lock-in** — works in vanilla, React, Vue and Angular apps.   | [![npm](https://img.shields.io/npm/v/@codewithrajat/runtime-debug-panel.svg)](https://www.npmjs.com/package/@codewithrajat/runtime-debug-panel)   |
+---
+
+### UI Components
+
+| Library                           | Description                                                              | npm Link                                                                                                        |
+| --------------------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| **rm-range-slider**               | Lightweight two-thumb range slider with tooltips and color customization | [![npm](https://img.shields.io/npm/v/rm-range-slider.svg)](https://www.npmjs.com/package/rm-range-slider)       |
+| **rm-ng-range-slider**            | Angular-specific version of the dual range slider                        | [![npm](https://img.shields.io/npm/v/rm-ng-range-slider.svg)](https://www.npmjs.com/package/rm-ng-range-slider) |
+| **rm-carousel**                   | Simple, responsive carousel component                                    | [![npm](https://img.shields.io/npm/v/rm-carousel.svg)](https://www.npmjs.com/package/rm-carousel)               |
+| **rm-image-slider**               | Minimal image slider with smooth transitions                             | [![npm](https://img.shields.io/npm/v/rm-image-slider.svg)](https://www.npmjs.com/package/rm-image-slider)       |
+| **rm-ng-star-rating**             | Configurable Angular star rating component with readonly mode            | [![npm](https://img.shields.io/npm/v/rm-ng-star-rating.svg)](https://www.npmjs.com/package/rm-ng-star-rating)   |
+| **@codewithrajat/rm-ng-typeahead** | Angular autocomplete/typeahead component with search suggestions and keyboard navigation | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-typeahead.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-typeahead)   |
+| **@codewithrajat/rm-ng-editor**    | Rich text editor component for Angular applications with customizable toolbar support | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-editor.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-editor)   |
+| **@codewithrajat/rm-ng-drop**                    | Angular  drag-and-drop file upload and selection toolkit: drop zone, file preview and a searchable single/multi-select dropdown with chips, async sources and CDK virtual scroll. Built on signals, zone-less, standalone and reactive-form ready. | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-drop.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-drop)   |
+---
+
+### Documents & Media
+
+| Library | Description | npm Link |
+| --- | --- | --- |
+| **@codewithrajat/universal-document-viewer** | Browser-first, framework-agnostic document viewer for PDF, Office, OpenDocument, e-books, images, CSV, JSON and 25+ formats. One ESM package with 27 explicit subpaths, a headless core, lazily loaded engines, optional UI, search, OCR, annotations and signature verification, plus React, Vue, Angular and vanilla integrations. **Privacy-first: documents render locally and nothing is uploaded.**   | [![npm](https://img.shields.io/npm/v/@codewithrajat/universal-document-viewer.svg)](https://www.npmjs.com/package/@codewithrajat/universal-document-viewer)   |
+| **@codewithrajat/universal-player** | Framework-agnostic universal media player for video, audio, images, HLS, DASH and YouTube/Vimeo embeds. One headless TypeScript core, a `<universal-player>` web component with custom controls, chapters, playlists, thumbnails, captions and in-player surveys, plus React, Vue, Angular, Svelte 4 and Svelte 5 adapters. **Tree-shakeable, custom-element first and dependency-free at the core.**   | [![npm](https://img.shields.io/npm/v/r@codewithrajat/universal-player.svg)](https://www.npmjs.com/package/@codewithrajat/universal-player)   |
+
+---
+
+### PDF & Export Libraries
+
+| Library                                | Description                                                  | npm Link                                                                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **rm-ng-export-to-csv**                | Export JSON data to CSV with zero dependencies               | [![npm](https://img.shields.io/npm/v/rm-ng-export-to-csv.svg)](https://www.npmjs.com/package/rm-ng-export-to-csv)                               |
+| **@codewithrajat/rm-ng-pdf-export**    | Image-based PDF export tool for Angular applications         | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-pdf-export.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-pdf-export)       |
+| **@codewithrajat/rm-ng-structure-pdf** | Generate structured PDFs for reports, invoices, or documents | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-structure-pdf.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-structure-pdf) |
+| **@codewithrajat/rm-ng-pdf-viewer**    | Angular PDF viewer component with zoom, navigation, and document rendering support | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-pdf-viewer.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-pdf-viewer) |
+
+---
+
+### Chrome Extension
+
+| Library | Description | Link |
+| --- | --- | --- |
+| **quickocr** | Chrome extension that extracts text from images using OCR technology | [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/quickocr/releases) |
+| **readLoude** | Chrome extension that reads web pages aloud, e.g. articles | [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/readLoude/releases) |
+| **ai-assistant-reply** | AI Chrome extension to auto-generate replies on LinkedIn posts | [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/ai-assistant-reply/releases) |
+
+---
+
+### VS Code Extension
+
+| Library | Description | Link |
+| --- | --- | --- |
+| **dead-css-cleaner** | VS Code extension for identifying and cleaning unused CSS styles | [![Install](https://img.shields.io/badge/Install-VS_Code-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=RajatMalik.dead-css-cleaner) [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/dead-css-cleaner/releases) |
+| **file-coverage-insight** | VS Code extension for automatically generated component file coverage on open | [![Install](https://img.shields.io/badge/Install-VS_Code-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=RajatMalik.file-coverage-insight) [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/file-coverage-insight/releases) |
+| **npmDepScript** | Run npm scripts and review outdated, deprecated and vulnerable dependencies without leaving VS Code | [![Install](https://img.shields.io/badge/Install-VS_Code-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=RajatMalik.npm-dep-script) [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/npmDepScript) |
+
+---
+
+### Desktop Applications - All Platforms
+
+| Library | Description | Link |
+| --- | --- | --- |
+| **deepwork** | Cross-platform productivity application for focus sessions and deep work tracking | [![Website](https://img.shields.io/badge/Website-deepwork.rajatmalik.dev-blue?logo=googlechrome&logoColor=white)](https://deepwork.rajatmalik.dev/) [![Web App](https://img.shields.io/badge/Web_App-app.deepwork.rajatmalik.dev-success?logo=googlechrome&logoColor=white)](https://app.deepwork.rajatmalik.dev/) [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/deepwork/releases) |
+| **JsSandbox** | Cross-platform JavaScript playground and code execution environment | [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/malikrajat/JsSandbox/releases) |
+
+---
+
+### Device Detection
+
+| Library                    | Description                                    | npm Link                                                                                                                        |
+| -------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **rm-ng-device-detection** | Detect device type, OS, and browser in Angular | [![npm](https://img.shields.io/npm/v/rm-ng-device-detection.svg)](https://www.npmjs.com/package/rm-ng-device-detection)         |
+
+---
+
+### Notifications
+
+| Library | Description | npm Link |
+| --- | --- | --- |
+| **rm-pushnotify** | Lightweight push-style toast notification utility | [![npm](https://img.shields.io/npm/v/rm-pushnotify.svg)](https://www.npmjs.com/package/rm-pushnotify) |
+| **@codewithrajat/rm-toast-notification** | Cross-platform toast and desktop notification library for web, Angular, and desktop applications | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-toast-notification.svg)](https://www.npmjs.com/package/@codewithrajat/rm-toast-notification) |
+
+---
+
+### Layout & Dynamic Rendering
+
+| Library | Description | Link |
+| --- | --- | --- |
+| **@codewithrajat/rm-ng-dynamic-layout** | Dynamic layout rendering engine for Angular applications using JSON-driven UI configuration | [![npm](https://img.shields.io/npm/v/@codewithrajat/rm-ng-dynamic-layout.svg)](https://www.npmjs.com/package/@codewithrajat/rm-ng-dynamic-layout) |
+
+---
+
+### Developer Tools & Extensions
+
+| Library | Description | npm Link |
+| --- | --- | --- |
+| **rm-colorful-console-logger** | Structured and colorized console logging utility for developers | [![npm](https://img.shields.io/npm/v/rm-colorful-console-logger.svg)](https://www.npmjs.com/package/rm-colorful-console-logger) |
+
+---
+
+### Meta & Personal Branding
+
+| Library | Description | npm Link |
+| --- | --- | --- |
+| **about-rajat** | Developer portfolio package for branding and quick personal info | [![npm](https://img.shields.io/npm/v/about-rajat.svg)](https://www.npmjs.com/package/about-rajat) |
+
+---
+
+### Websites & Live Products
+
+| Website | Description | Link |
+| --- | --- | --- |
+| **rajatmalik.dev** | Personal portfolio and engineering site: role fit, skills, 15+ years of experience, 30+ open-source libraries and tools, talks, selected product work and 150+ technical articles. Hand-written HTML and CSS with **no framework and no build step**, published from GitHub Pages with structured data and plain-text profiles for search engines and AI assistants. | [![Website](https://img.shields.io/badge/Website-rajatmalik.dev-blue?logo=googlechrome&logoColor=white)](https://rajatmalik.dev/) |
+| **dailymilk.rajatmalik.dev** | **DailyMilk** — free, installable dairy operations PWA for milk delivery businesses. Tracks milkmen, daily milk entries, milk rates and price lists, purchases and customer payments, then turns them into CSV and PDF reports, with full JSON database export/import and offline support. Built with an **Angular signals** dashboard and Firebase auth/storage; installable on Android, iOS, Windows, macOS and Linux. | [![Website](https://img.shields.io/badge/Website-dailymilk.rajatmalik.dev-blue?logo=googlechrome&logoColor=white)](https://dailymilk.rajatmalik.dev/) |
+| **rent.rajatmalik.dev** | **Rents Collections** — a calm, secure workspace for landlords and property managers to keep tenancies, rent schedules and payment reminders in one place instead of scattered across spreadsheets and notes. Responsive React interface with a dark, focused UI. | [![Website](https://img.shields.io/badge/Website-rent.rajatmalik.dev-blue?logo=googlechrome&logoColor=white)](https://rent.rajatmalik.dev/) |
+
+---
+
+### All Packages
+
+Browse all my packages:
+
+- [npm: @codewithrajat](https://www.npmjs.com/~codewithrajat)
+- [npm: rajatmalik](https://www.npmjs.com/~rajatmalik)
+- [GitHub: @malikrajat](https://github.com/malikrajat?tab=repositories)
+
+---
+
+## Author
+
+**Rajat Malik**
+
+Full-Stack Developer and Frontend Architect at Siemens with 14+ years building scalable enterprise platforms, specializing in micro-frontends, AI-native development, React, and Angular.
+Author of 10+ open-source libraries and 100+ technical articles, driving innovation through developer-friendly tools, performance optimization, and AI-assisted workflows.
+
+### GET IN TOUCH
+
+- Portfolio:  [rajatmalik.dev](https://rajatmalik.dev)
+- Email:      [support@rajatmalik.dev](mailto:support@rajatmalik.dev)
+- LinkedIn:   [errajatmalik](https://linkedin.com/in/errajatmalik)
+- GitHub:     [@malikrajat](https://github.com/malikrajat)
+- npm:        [rajatmalik](https://www.npmjs.com/~rajatmalik)
+
+### SOCIAL PRESENCE
+
+- Threads:    [rajatmalik](https://www.threads.net/@er.rajatmalik)
+- Twitter/X:  [rajatmalik](https://x.com/er_rajatmalik)
+- BlueSky:    [rajatmalik](http://devrajat.bsky.social)
+
+### CONTENT & WRITING
+
+- Medium:    [rajatmalik](https://medium.com/@codewithrajat)
+- Dev.to:    [rajatmalik](https://dev.to/codewithrajat)
+- Substack:   [rajatmalik](https://codewithrajat.substack.com)
+- Hashnode:   [rajatmalik](https://hashnode.com/@codeswithrajat)
+
+---
+
+<p align="center">
+  Made with care and love by <a href="https://rajatmalik.dev">Rajat Malik</a> for the JavaScript community
+</p>
+
+<p align="center">
+  <a href="https://github.com/malikrajat/tracepulse/stargazers">Star on GitHub</a> •
+  <a href="https://www.npmjs.com/package/@codewithrajat/tracepulse">View on npm</a> •
+  <a href="https://github.com/malikrajat/tracepulse/issues">Report Issue</a> •
+  <a href="https://stackblitz.com/edit/vitejs-vite-jt62srqb">Try Demo</a>
+</p>
+
+<p align="center">
+  Made with dedication by <a href="https://rajatmalik.dev">Rajat Malik</a>
+</p>

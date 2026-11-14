@@ -82,7 +82,7 @@ export default defineConfig({
       {
         text: 'Support',
         items: [
-          { text: 'Email support', link: 'mailto:support@theraterajatmalik.dev' },
+          { text: 'Email support', link: 'mailto:support@rajatmalik.dev' },
           { text: 'GitHub issues', link: 'https://github.com/malikrajat/tracepulse/issues' },
           {
             text: 'Security policy',
@@ -148,7 +148,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2026 Rajat Malik · support@theraterajatmalik.dev',
+      copyright: 'Copyright © 2026 Rajat Malik · support@rajatmalik.dev',
     },
 
     outline: { level: [2, 3], label: 'On this page' },

@@ -13,7 +13,7 @@
 
 Report vulnerabilities privately through GitHub's
 [Security Advisories](https://github.com/malikrajat/tracepulse/security/advisories/new)
-form, or email **support@theraterajatmalik.dev**. Please include:
+form, or email **support@rajatmalik.dev**. Please include:
 
 - The affected version(s)
 - A minimal reproduction or proof of concept

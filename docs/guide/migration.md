@@ -4,7 +4,7 @@ TracePulse `1.0.0` is the first public release. There is no previously published
 API to migrate from. The finalized V1 configuration schema uses an explicit
 `{ warningMs, criticalMs }` pair for every duration threshold.
 
-During unreleased development, an earlier build accepted one number per category under
+During pre-release development, an earlier build accepted one number per category under
 `requestDurationMs`, `responseProcessingMs` and `uiUpdateMs`. The final V1 schema renames
 `requestDurationMs` to `timeToResponseMs` and requires an explicit `{ warningMs, criticalMs }`
 pair for every category. The old key and the numeric form are **rejected** by `1.0.0`, not
@@ -42,7 +42,7 @@ Boundaries must be finite and non-negative. `warningMs` must be strictly less th
 | `responseProcessingMs` | `responseProcessingMs: 500`                         | `{ warningMs: 300, criticalMs: 500 }`   |
 | `uiUpdateMs`           | `uiUpdateMs: 1000`                                  | `{ warningMs: 500, criticalMs: 1000 }`  |
 
-Before (unreleased development build):
+Before (pre-release development build):
 
 ```ts
 import { resolveConfig } from '@codewithrajat/tracepulse'

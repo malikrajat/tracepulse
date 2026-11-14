@@ -471,13 +471,13 @@ resolveConfig({ exclude: ['/telemetry'] }).exclude // ["/telemetry"]
 ## Pre-release numeric thresholds
 
 `1.0.0` is the first public release, so there is no published single-number API to migrate
-from. An earlier unreleased development build accepted one number per category under the keys
+from. An earlier pre-release development build accepted one number per category under the keys
 `requestDurationMs`, `responseProcessingMs` and `uiUpdateMs`. V1 renames `requestDurationMs`
 to `timeToResponseMs` and requires a pair for every category. Both the old key and the numeric
 form are **rejected**, not reinterpreted:
 
 ```ts
-// Unreleased development form: one number per category under the old key
+// Pre-release development form: one number per category under the old key
 resolveConfig({ thresholds: { requestDurationMs: 3000 } })
 // TypeError: config.thresholds.requestDurationMs is no longer supported;
 // use config.thresholds.timeToResponseMs with { warningMs, criticalMs }

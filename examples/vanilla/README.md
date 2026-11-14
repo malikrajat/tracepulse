@@ -68,8 +68,9 @@ That is the whole integration. Existing `fetch` and `XMLHttpRequest` calls need 
 </html>
 ```
 
-The `dist/index.js` path is literal because the package is not published yet; after `1.0.0`
-ships you can import the bare specifier from a bundler or an import map.
+The package is published, so a bundler or an import map can resolve
+`@codewithrajat/tracepulse` directly; the literal path above is for a no-build page served from
+`node_modules`.
 
 ## 3. IIFE build with a `<script>` tag
 

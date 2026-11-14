@@ -83,7 +83,7 @@ published or distributed before this release.
   pairs are rejected.
 - `DurationThreshold` and `DurationThresholdInput` are exported from the package root.
 - A single-number threshold form and the pre-release `requestDurationMs` key existed only
-  during unreleased development. Both are rejected by the final V1 schema rather than
+  during pre-release development. Both are rejected by the final V1 schema rather than
   reinterpreted, so an old configuration cannot silently keep the default boundaries. There
   is no migration from a previously published TracePulse 1.x release.
 

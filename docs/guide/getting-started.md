@@ -14,16 +14,6 @@
 pnpm add @codewithrajat/tracepulse
 ```
 
-> **Not published yet.** `1.0.0` is prepared but unreleased, so this command fails until the
-> first publish. Install from the repository in the meantime:
->
-> ```bash
-> pnpm add file:../path/to/TracePulse
-> ```
->
-> Every example imports from the package root, so switching to the published package later
-> needs no code change.
-
 ## Your first instance
 
 ```ts
@@ -105,7 +95,7 @@ Everything runs through Vite+ — one CLI, one config file (`vite.config.ts`):
 ## Next steps
 
 - [Configuration](/guide/configuration) — every setting, its default and validation rules.
-- [Threshold pairs](/guide/migration) — the V1 schema and the unreleased numeric form.
+- [Threshold pairs](/guide/migration) — the V1 schema and the pre-release numeric form.
 - [Core concepts](/guide/core-concepts) — lifecycle, options, events, errors.
 - [Plugins](/guide/plugins) — extend an instance without touching its internals.
 - [API reference](/guide/api) — every export and its signature.
